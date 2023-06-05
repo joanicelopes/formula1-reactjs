@@ -1,50 +1,49 @@
 @font-face {
-    font-family: 'Formula 1';
-    src: url('../public/fonts/Formula1-Regular-1.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Formula 1";
+  src: url("../public/fonts/Formula1-Regular-1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 * {
-	box-sizing: border-box;
-    font-family: 'Formula 1', sans-serif;
+  box-sizing: border-box;
+  font-family: "Formula 1", sans-serif;
   /*font-family: 'Montserrat', sans-serif;*/
-  
 }
 
 body {
-   background: #42445A;
-   height: 100vh;
-   color: #fff;
-   margin: 0;
-    padding: clamp(1rem, 2vw, 3rem);
-	font-size: 1.1rem;
+  background: #42445a;
+  height: 100vh;
+  color: #fff;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 3rem);
+  font-size: 1.1rem;
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (max-width: 720px) {
-    .container {
-        max-width: 100%;
-        padding: 0 1rem;
-    }
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
 }
 
 .permanent-number {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    text-align: center;
-    margin-right: 8px;
-    border: 1px solid #333;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-right: 8px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
 }
 
 .center {
@@ -54,7 +53,7 @@ body {
 }
 
 .nav {
-  background-color: #E10600;
+  background-color: #e10600;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -94,80 +93,77 @@ body {
 }
 
 .wrapper {
-    max-width: 40rem;
-    margin: 0 auto;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .wrapper ol {
-	padding: 1.5rem 1.5rem 1.5rem ;
-	border: 0.2rem solid #fff;
-    background: #fff;
-    font-weight: bold;
-	columns: 8rem;
-	column-gap: 4rem;
-	column-rule: 5px solid #FF1801;
-	border-radius: 0.5rem;
+  padding: 1.5rem 1.5rem 1.5rem;
+  border: 0.2rem solid #fff;
+  background: #fff;
+  font-weight: bold;
+  columns: 8rem;
+  column-gap: 4rem;
+  column-rule: 5px solid #ff1801;
+  border-radius: 0.5rem;
   list-style: none;
 }
 
 .wrapper li span {
-    display: flex;
-    color: #000;
+  display: flex;
+  color: #000;
 }
 
 .wrapper li span:first-child {
-	font-size: 1.5em;
-    color: #FF1801;
+  font-size: 1.5em;
+  color: #ff1801;
 }
 
 .wrapper li span:last-child {
   color: #000;
 }
 .wrapper img {
-    height: 100px;
-    object-fit: contain;
-    margin-left: 20px;
+  height: 100px;
+  object-fit: contain;
+  margin-left: 20px;
 }
 
 .constructor {
   max-width: 40rem;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .constructor ul {
-	padding: 1.5rem 1.5rem 1.5rem ;
-	border: 0.2rem solid #fff;
-    font-weight: bold;
-	columns: 8rem;
-	column-gap: 3rem;
-	column-rule: 2px solid #000;
-	border-radius: 0.5rem;
-    list-style: none;
+  padding: 1.5rem 1.5rem 1.5rem;
+  border: 0.2rem solid #fff;
+  font-weight: bold;
+  columns: 8rem;
+  column-gap: 3rem;
+  column-rule: 2px solid #000;
+  border-radius: 0.5rem;
+  list-style: none;
 }
 
-
-.constructor li span{
-    font-size: 1.5em;
-    font-style: bold;
-    display: flex;
-    color: #000;
+.constructor li span {
+  font-size: 1.5em;
+  font-style: bold;
+  display: flex;
+  color: #000;
 }
 
 .constructor-mercedes {
   background-color: #6cd3bf;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-ferrari {
-    border-radius: 0.5rem;
-    background-color: #ed1c24;
+  border-radius: 0.5rem;
+  background-color: #ed1c24;
 }
 
 .constructor-mclaren {
   background-color: #f58020;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-red_bull {
@@ -176,38 +172,33 @@ body {
 
 .constructor-aston_martin {
   background-color: #2d826d;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-alphatauri {
   background-color: #4e7c9b;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-alpine {
   background-color: #2293d1;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-alfa {
   background-color: #b12039;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-williams {
   background-color: #37bedd;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
 }
 
 .constructor-haas {
   background-color: #b6babd;
-    border-radius: 0.5rem;
-    
+  border-radius: 0.5rem;
+
   /* box-shadow: 0px 0px 0px 1px rgb(158, 158, 158) inset; */
 }
 
@@ -218,29 +209,76 @@ body {
 }
 
 .standings-table {
-    background-color: #eee;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+  background-color: #eee;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 th {
-    text-align: center;;
-    padding: 8px;
-    background-color: #E10600;
+  text-align: center;
+  padding: 8px;
+  background-color: #e10600;
 }
 
 td {
-    text-align: center;
-    padding: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    color: #000;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: #000;
 }
 
 .position-column {
-    width: 10%;
-    text-align: center;
+  width: 10%;
+  text-align: center;
+}
+
+.race-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.race-card {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  perspective: 1000px;
+}
+
+.race-card:hover .race-card-inner {
+  transform: rotateY(180deg);
+}
+
+.race-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.race-card-front,
+.race-card-back {
+  position: absolute;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.race-card-back {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
 }

@@ -15,7 +15,7 @@ export default function Navbar() {
                 <a href="/driverstandings">Driver Standings</a>
             </li>
             <li>
-                <a href="/calendar">Calendar</a>
+                <a href="/raceschedule">Race Schedule</a>
             </li>
         </ul>
     </nav>

@@ -4,7 +4,7 @@ const Standings = ({ drivers, standings, isLoading }) => {
         <h1>Loading...</h1>
     ) : (
         <div className="driver-standings">
-            <h1>2023 Driver Standings</h1>
+            <h1>Current Driver Standings</h1>
             <table className="standings-table">
                 <thead>
                 <tr>

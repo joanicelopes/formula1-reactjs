@@ -1,4 +1,3 @@
-import DriverGrid from '../components/drivers/DriverGrid';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Standings from "../components/driverStandings/Standings";
