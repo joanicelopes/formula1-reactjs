@@ -1,0 +1,1 @@
+<td class="${test eq true ? 'style_class1' : 'style_class2'}">

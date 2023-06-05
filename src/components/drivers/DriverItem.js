@@ -4,7 +4,7 @@ const DriverItem = ({ item }) => {
 	const imagePath =  '../../assets/images/drivers/'
 	const imageSource = `${imagePath}${item.driverId}.png`
 
-	const driverNameStyle = {
+	/*const driverNameStyle = {
 		display: 'inline-block',
 		paddingLeft: '8px',
 		fontWeight: 'bold',
@@ -12,7 +12,7 @@ const DriverItem = ({ item }) => {
 		color: '#333',
 		borderBottom: `4px solid ${item.teamColor}`,
 		marginBottom: '12px'
-	};
+	};*/
 	
   return (
     <div className="wrapper">

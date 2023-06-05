@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/ui/Navbar';
+import Home from './pages/Home';
+import Drivers from './pages/Drivers';
+import Constructors from './pages/Constructors';
+import DriverStandings from './pages/DriverStandings';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () => {
+  let component
+  
+  switch (window.location.pathname) {
+    case "/":
+      component = <Home />
+      break
+    case "/drivers":
+      component = <Drivers />
+      break
+      case "/constructors":
+        component = <Constructors />
+        break
+    case "/driverstandings":
+      component = <DriverStandings />
+      break
+    default:
+      component = <App />
+  }
+
+  return ( 
+    <div >
+      <div>
+        <Navbar />
+      </div>
+      <div className="container">{component}</div>
     </div>
-  );
+  )
 }
-
 export default App;
