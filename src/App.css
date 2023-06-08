@@ -128,76 +128,188 @@ body {
   margin-left: 20px;
 }
 
-.constructor {
-  max-width: 40rem;
-  margin: 0 auto;
+.constructor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.constructor ul {
-  padding: 1.5rem 1.5rem 1.5rem;
-  border: 0.2rem solid #fff;
-  font-weight: bold;
-  columns: 8rem;
-  column-gap: 3rem;
-  column-rule: 2px solid #000;
-  border-radius: 0.5rem;
-  list-style: none;
+/*.constructor-card {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  background-color: #333333;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.3s;
+  margin-top: 20px;
 }
 
-.constructor li span {
-  font-size: 1.5em;
-  font-style: bold;
+.constructor-card:hover {
+  transform: scale(1.05);
+}*/
+
+/*.constructor-card.flipped .constructor-card-container {
+  transform: rotateY(180deg);
+}*/
+
+.constructor-card-container {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.constructor-card {
+  /*position: absolute;*/
+  width: 100%;
+  height: 100%;
+  position: relative;
   display: flex;
-  color: #000;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
 }
+
+.constructor-card:hover {
+  transform:  scale(1.05) rotateY(180deg);
+}
+
+.constructor-card-front {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #333333;
+  color: white;
+}
+
+.constructor-card-back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #333333;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.constructor-card h3 {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+/*
+.constructor-card-front,
+.constructor-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.constructor-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.constructor-card p {
+  font-size: 1rem;
+}
+
+.constructor-card-back {
+  background-color: #333333;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}*/
+
+
+.constructor-country {
+  display: inline-block;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 4px;
+  border-radius: 4px;
+}
+
+.constructor-card-back ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.constructor-card-back li{
+  margin-bottom: 10px;
+  font-size: 1rem
+}
+
+.constructor-card-back p {
+  font-size: 1rem;
+}
+
 
 .constructor-mercedes {
-  background-color: #6cd3bf;
-  border-radius: 0.5rem;
+  border: 4px solid #6cd3bf;
 }
 
 .constructor-ferrari {
-  border-radius: 0.5rem;
-  background-color: #ed1c24;
+  border: 4px solid #ed1c24;
 }
 
 .constructor-mclaren {
-  background-color: #f58020;
-  border-radius: 0.5rem;
+  border: 4px solid #f58020;
 }
 
 .constructor-red_bull {
-  background-color: #1e5bc6;
+  border: 4px solid #1e5bc6;
 }
 
 .constructor-aston_martin {
-  background-color: #2d826d;
-  border-radius: 0.5rem;
+  border: 4px solid #2d826d;
 }
 
 .constructor-alphatauri {
-  background-color: #4e7c9b;
-  border-radius: 0.5rem;
+  border: 4px solid #4e7c9b;
 }
 
 .constructor-alpine {
-  background-color: #2293d1;
-  border-radius: 0.5rem;
+  border: 4px solid #2293d1;
 }
 
 .constructor-alfa {
-  background-color: #b12039;
-  border-radius: 0.5rem;
+  border: 4px solid #b12039;
 }
 
 .constructor-williams {
-  background-color: #37bedd;
-  border-radius: 0.5rem;
+  border: 4px solid #37bedd;
 }
 
 .constructor-haas {
-  background-color: #b6babd;
-  border-radius: 0.5rem;
+  border: 4px solid #b6babd;
 
   /* box-shadow: 0px 0px 0px 1px rgb(158, 158, 158) inset; */
 }
