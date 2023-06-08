@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Standings from "../components/driverStandings/Standings";
 
-const Home = () =>  {
+const DriverStandings = () =>  {
 
     const [drivers, setDrivers] = useState([])
     const [standings, setStandings] = useState([])
@@ -36,4 +36,4 @@ const Home = () =>  {
     )
 }
 
-export default Home
+export default DriverStandings

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import RaceGrid from "../components/raceSchedule/RaceGrid"
 
-const Home = () => {
+const RaceSchedule = () => {
     const [ races, setRaces ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true)
     
@@ -28,4 +28,4 @@ const Home = () => {
         </div>
     )
 }
-export default Home
+export default RaceSchedule

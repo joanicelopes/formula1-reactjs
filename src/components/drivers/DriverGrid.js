@@ -5,7 +5,7 @@ const DriverItem = ({ drivers, isLoading }) => {
       <h1>Loading...</h1>
   ) : (
       <div className="wrapper">
-        <h1> Current Drivers</h1>
+        <h1>Drivers</h1>
         <table className="standings-table">
           <thead>
           <tr>

@@ -2,7 +2,7 @@ import React from 'react';
 import RaceCard from './RaceCard';
 import UpcomingRaceCard from './UpcomingRaceCard';
 
-const RaceGrid = ({ races, isLoading}) => {
+const RaceGrid = ({ races, isLoading }) => {
     const upcomingRace = races.find((race) => new Date(race.date) > new Date())
     return isLoading ? (
         <h1>Loading...</h1>

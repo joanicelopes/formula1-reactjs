@@ -2,7 +2,7 @@ import DriverGrid from '../components/drivers/DriverGrid';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Home = () =>  {
+const Drivers = () =>  {
 
 const [drivers, setDrivers] = useState([])
 const [isLoading, setIsLoading] = useState(true)
@@ -25,4 +25,4 @@ useEffect(() => {
     )
 }
 
-export default Home
+export default Drivers

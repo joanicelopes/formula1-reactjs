@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 
-
 const RaceCard = ({ race, isLoading }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -19,18 +18,20 @@ const RaceCard = ({ race, isLoading }) => {
         return `${hours}:${minutes}`;
       };
 
+    const hasRacePassed = new Date(race.date) < new Date(); // Check if the race date has passed
+
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (
-        <div
-        className={`race-card ${isFlipped ? 'flipped' : ''}`}
-        onClick={flipCard}
-      >
-        <div className="race-card-inner">
-        <span className="race-round">Round {race.round}</span>
+        <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`} 
+             onClick={flipCard}
+             style={hasRacePassed ? { border: '4px solid #ccc' } : {}}
+        >
+        <div className="race-card">
           <div className="race-card-front">
+           {/* <span className="race-round">Round {race.round}</span>*/}
             <h3>{race.raceName}</h3>
-            <p className="circuitName">{race.Circuit.circuitName}</p>
+            <h4 className="circuitName">{race.Circuit.circuitName}</h4>
             <p>Date: {formatDate(race.date)}</p>
             <p>Time: {formatTime(race.time)}</p>
           </div>
@@ -46,7 +47,7 @@ const RaceCard = ({ race, isLoading }) => {
             <p>Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
           </div>
         </div>
-      </div>
+        </div>
     );
 };
 

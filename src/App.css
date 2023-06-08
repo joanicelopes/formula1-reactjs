@@ -128,33 +128,34 @@ body {
   margin-left: 20px;
 }
 
+.time-card-container {
+  margin-top: 20px;
+}
+
+.time-card {
+  background-color: #fff;
+  border: 2px solid #ff0000;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.time-card-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.time-card-content {
+  color: #333333;
+  font-size: 18px;
+}
+
 .constructor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
-
-/*.constructor-card {
-  position: relative;
-  width: 400px;
-  height: 100px;
-  background-color: #333333;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  cursor: pointer;
-  perspective: 1000px;
-  transition: transform 0.3s;
-  margin-top: 20px;
-}
-
-.constructor-card:hover {
-  transform: scale(1.05);
-}*/
-
-/*.constructor-card.flipped .constructor-card-container {
-  transform: rotateY(180deg);
-}*/
 
 .constructor-card-container {
   position: relative;
@@ -164,7 +165,6 @@ body {
 }
 
 .constructor-card {
-  /*position: absolute;*/
   width: 100%;
   height: 100%;
   position: relative;
@@ -211,40 +211,6 @@ body {
   font-size: 1.2rem;
   padding: 10px;
 }
-
-/*
-.constructor-card-front,
-.constructor-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.constructor-card-front {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-}
-
-.constructor-card p {
-  font-size: 1rem;
-}
-
-.constructor-card-back {
-  background-color: #333333;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-}*/
-
 
 .constructor-country {
   display: inline-block;
@@ -356,51 +322,58 @@ td {
 
 .race-card {
   position: relative;
-  width: 400px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   background-color: #333333;
   color: white;
   cursor: pointer;
+  perspective: 800px;
+  display: flex;
+  border: 2px solid #ff1801;
   border-radius: 8px;
-  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
 }
 
-.race-card:hover .race-card-inner {
+.race-card:hover {
   transform: rotateY(180deg);
 }
-
-.race-card-inner {
+.race-card-container {
   position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
+  width: 400px;
+  height: 200px;
+  margin-top: 20px;
 }
 
-.race-card-front,
+.race-card-front {
+  position: absolute;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #333333;
+  color: white;
+}
+
 .race-card-back {
   position: absolute;
-  padding: 20px;
+  padding: 1em;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
-  -webkit-backface-visibility: hidden;
-}
-
-.race-card-back {
-  background-color: #333;
+  backface-visibility: hidden;
+  background: #333333;
   color: white;
   transform: rotateY(180deg);
 }
-
 .race-card-front h3,
 .race-card-front p,
 .race-card-back p {
-  margin: 0;
+  margin: 1em;
 }
 
 .circuitName {
-  color: #cccccc;
+  color: #5b5b5b;
+  margin: 0.8em;
 }
 
 .upcoming-race-card {
@@ -412,6 +385,16 @@ td {
   border-radius: 8px;
   margin-bottom: 20px;
 }
+
+.upcoming-race-card-home {
+  background-color: #2d2d2d;
+  border: 2px solid #ff0000;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
 
 .text-container {
   display: flex;
@@ -445,6 +428,4 @@ td {
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 4px;
-  margin-top: 8px;
-  margin-right: 8px;
 }

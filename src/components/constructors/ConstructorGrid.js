@@ -3,7 +3,6 @@ import React, {useState} from 'react'
         const [isFlipped, setIsFlipped] = useState(false);
 
         const flipCard = () => {
-            console.log('Card clicked');
             setIsFlipped(!isFlipped);
         };
         console.log('isFlipped:', isFlipped);
@@ -34,10 +33,13 @@ import React, {useState} from 'react'
 
     const ConstructorGrid = ({ items, constructorDrivers }) => {
         return (
+            <div>
+            <h1>Constructors</h1>
             <div className="constructor-grid">
                 {items.map((item) => (
                     <ConstructorCard key={item.constructorId} item={item} />
                 ))}
+            </div>
             </div>
         );
 }

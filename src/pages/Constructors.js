@@ -2,7 +2,7 @@ import ConstructorGrid from '../components/constructors/ConstructorGrid';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Home = () =>  {
+const Constructors = () =>  {
 
 const [items, setItems] = useState([])
 const [isLoading, setIsLoading] = useState(true)
@@ -44,4 +44,4 @@ useEffect(() => {
     )
 }
 
-export default Home
+export default Constructors
