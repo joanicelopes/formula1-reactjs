@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Drivers from './pages/Drivers';
 import Constructors from './pages/Constructors';
 import DriverStandings from './pages/DriverStandings';
+import ConstructorStandings from './pages/DriverStandings';
 import RaceSchedule from './pages/RaceSchedule';
 
 const App = () => {
@@ -21,6 +22,9 @@ const App = () => {
         break
     case "/driverstandings":
       component = <DriverStandings />
+      break
+    case "/constructorstandings":
+      component = <ConstructorStandings />
       break
     case "/raceschedule":
       component = <RaceSchedule />
