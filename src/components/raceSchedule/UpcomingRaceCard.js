@@ -1,22 +1,25 @@
 import React from 'react';
+import dayjs from 'dayjs';
+var utc = require('dayjs/plugin/utc')
+var timezone = require('dayjs/plugin/timezone') // dependent on utc plugin
 
+dayjs.extend(utc)
+dayjs.extend(timezone)
 const UpcomingRaceCard = ({ race, isLoading }) => {
     const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const isoDateString = date.toISOString();
-        const [year, month, day] = isoDateString.substr(0, 10).split('-');
-        return `${day}/${month}`;
+        const date = dayjs(dateString);
+        //const date = dayjs.utc(dateString).tz('Atlantic/Cape_Verde')
+        return date.format('DD MMM');
     };
 
     const formatTime = (timeString) => {
         const [hours, minutes] = timeString.split(':');
-        const date = new Date(); // Create a new Date object representing the current date and time
-        date.setHours(hours); // Set the hours and minutes based on the provided timeString
-        date.setMinutes(minutes);
-        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const date = dayjs().set('hour', hours).set('minute', minutes);
+        return date.format('HH:mm');
     };
+    
+    //console.log(dayjs.tz.guess()) // guess user timezone
 
-    console.log(formatDate(race.date))
     return (
         <div className="upcoming-race-card">
             <h2>{race.raceName}</h2>

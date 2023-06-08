@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import dayjs from 'dayjs';
 
 const RaceCard = ({ race, isLoading }) => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -9,14 +10,16 @@ const RaceCard = ({ race, isLoading }) => {
     };
 
     const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('pt-PT', { month: '2-digit', day: '2-digit' });
-      };
-    
-      const formatTime = (timeString) => {
+        const date = dayjs(dateString);
+        //const date = dayjs.utc(dateString).tz('Atlantic/Cape_Verde')
+        return date.format('DD MMM');
+    };
+
+    const formatTime = (timeString) => {
         const [hours, minutes] = timeString.split(':');
-        return `${hours}:${minutes}`;
-      };
+        const date = dayjs().set('hour', hours).set('minute', minutes);
+        return date.format('HH:mm');
+    };
 
     const hasRacePassed = new Date(race.date) < new Date(); // Check if the race date has passed
 
