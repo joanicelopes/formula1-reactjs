@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Standings from "../components/driverStandings/Standings";
+import DriverStandingsTable from "../components/driverStandings/DriverStandings";
 
 const DriverStandings = () =>  {
 
@@ -31,7 +31,7 @@ const DriverStandings = () =>  {
     },[])
     return (
         <div className="standings-container">
-        <Standings isLoading={isLoading} drivers={drivers} standings={standings}/>
+        <DriverStandingsTable isLoading={isLoading} drivers={drivers} standings={standings}/>
         </div>
     )
 }

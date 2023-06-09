@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Drivers from './pages/Drivers';
 import Constructors from './pages/Constructors';
 import DriverStandings from './pages/DriverStandings';
-import ConstructorStandings from './pages/DriverStandings';
+import ConstructorStandings from './pages/ConstructorStandings';
 import RaceSchedule from './pages/RaceSchedule';
 
 const App = () => {

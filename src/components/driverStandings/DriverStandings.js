@@ -1,9 +1,9 @@
 import React from 'react';
-const Standings = ({ drivers, standings, isLoading }) => {
+const DriverStandingsTable = ({ drivers, standings, isLoading }) => {
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (
-        <div className="driver-standings">
+        <div className="standings">
             <h1>Current Driver Standings</h1>
             <table className="standings-table">
                 <thead>
@@ -33,4 +33,4 @@ const Standings = ({ drivers, standings, isLoading }) => {
         </div>
     )
 };
-export default Standings;
+export default DriverStandingsTable;

@@ -30,7 +30,7 @@ const RaceCard = ({ race, isLoading }) => {
              onClick={flipCard}
              
         >
-        <div className="race-card" style={hasRacePassed ? { border: '2px solid #ccc' } : {}}>
+        <div className="race-card" style={hasRacePassed ? { border: '3px solid #ccc' } : {}}>
           <div className="race-card-front">
            {/* <span className="race-round">Round {race.round}</span>*/}
             <h3>{race.raceName}</h3>
