@@ -20,7 +20,7 @@ const Home = () => {
                 );
                 const lastRaceResponse = await axios.get('https://ergast.com/api/f1/current/last/results.json')
                 const raceData = raceDataResponse.data.MRData.RaceTable.Races;
-                const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races;
+                const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races[0].Results;
                 setRaces(raceData);
                 setLastRace(lastRaceData)
                 setIsLoading(false);
@@ -50,7 +50,9 @@ const Home = () => {
     };
 
 
-    return (
+    return isLoading ? (
+        <h1>Loading...</h1>
+    ) : (
         <div className="home-grid-container">
             <Header />
             <div className="time-card-container">

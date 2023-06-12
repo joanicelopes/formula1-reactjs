@@ -192,7 +192,7 @@ body {
 }
 
 .constructor-card:hover {
-  transform:  scale(1.05) rotateY(180deg);
+  transform: scale(1.05) rotateY(180deg);
 }
 
 .constructor-card-front {
@@ -235,21 +235,20 @@ body {
   border-radius: 4px;
 }
 
-.constructor-card-back ul{
+.constructor-card-back ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.constructor-card-back li{
+.constructor-card-back li {
   margin-bottom: 10px;
-  font-size: 1rem
+  font-size: 1rem;
 }
 
 .constructor-card-back p {
   font-size: 1rem;
 }
-
 
 .constructor-mercedes {
   border: 4px solid #6cd3bf;
@@ -383,7 +382,6 @@ body {
   margin: 1em;
 }
 
-
 .circuitName {
   color: #5b5b5b;
   margin-left: 1em;
@@ -427,8 +425,9 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.race-card-front p, .race-card-back p {
-  color: #b2b2b2
+.race-card-front p,
+.race-card-back p {
+  color: #b2b2b2;
 }
 
 .left-text {
@@ -438,7 +437,6 @@ body {
 .right-text {
   order: 2;
   color: #cccccc;
-  
 }
 
 .race-round {
@@ -449,4 +447,25 @@ body {
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 4px;
+
+  /* --------------------------------------------------------------------------------- */
+  .table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-row {
+    display: table-row;
+  }
+
+  .table-cell {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .table-cell:first-child {
+    font-weight: bold;
+  }
 }

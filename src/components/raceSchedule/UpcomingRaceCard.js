@@ -14,8 +14,9 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
 
     const formatTime = (timeString) => {
         const [hours, minutes] = timeString.split(':');
-        const date = dayjs().set('hour', hours).set('minute', minutes);
-        return date.format('HH:mm');
+        const time = dayjs().set('hour', hours).set('minute', minutes);
+        const cv = time.subtract(1, 'hour');
+        return cv.format('HH:mm');
     };
     
     //console.log(dayjs.tz.guess()) // guess user timezone
