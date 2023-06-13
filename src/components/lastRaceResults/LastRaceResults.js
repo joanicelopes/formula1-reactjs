@@ -4,7 +4,7 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
     const results = lastRace[0].Results;
     console.log(lastRace)
     return lastRace && lastRace.length > 0 ? (
-        <div className="lastrace-results-card">
+        <div className="last-race-results-card">
             <h2>Last Race Results</h2>
             <p>Round {lastRace[0].round} - {lastRace[0].raceName}</p>
             <table className='last-race-table'>
@@ -17,15 +17,11 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                 </tr>
             </thead>
             <tbody>
-            {/* 
-                Please note that this assumes the Time property exists for all lastRace items.
-                Adjust the code accordingly if there's a chance that some items may not have the Time property.
-            */}
                 {results.map((result, index) => (
                     <tr key={index}>
                         <td>{result.position}</td>
                         <td>{result.Driver.givenName} {result.Driver.familyName}</td>
-                        <td>{result.Time && result.Time.time}</td>
+                        <td>{result.Time ? result.Time.time : "+1 Lap"}</td>
                         <td>{result.points}</td>
                     </tr>
                 ))}

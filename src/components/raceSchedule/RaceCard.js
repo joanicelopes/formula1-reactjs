@@ -22,6 +22,14 @@ const RaceCard = ({ race, isLoading }) => {
         return cv.format('HH:mm');
     };
 
+    const raceWeekend = (startDateString, endDateString) => {
+        const start = dayjs(startDateString);
+        const end = dayjs(endDateString);
+        const startDay = start.format("DD");
+        const endDay = end.format("DD MMM");
+        return `${startDay} - ${endDay}`;
+    }
+
     const hasRacePassed = new Date(race.date) < new Date(); // Check if the race date has passed
 
     return isLoading ? (
@@ -35,8 +43,8 @@ const RaceCard = ({ race, isLoading }) => {
            {/* <span className="race-round">Round {race.round}</span>*/}
             <h3>{race.raceName}</h3>
             <h4 className="circuitName">{race.Circuit.circuitName}</h4>
-            <p>Date: {formatDate(race.date)}</p>
-            <p>Time: {formatTime(race.time)}</p>
+            <p>{raceWeekend(race.FirstPractice.date, race.date)}</p>
+            <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
           </div>
           <div className="race-card-back">
             <p>Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>

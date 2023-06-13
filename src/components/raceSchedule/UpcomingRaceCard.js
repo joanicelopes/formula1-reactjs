@@ -19,13 +19,20 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
         return cv.format('HH:mm');
     };
     
-    //console.log(dayjs.tz.guess()) // guess user timezone
+    const raceWeekend = (startDateString, endDateString) => {
+        const start = dayjs(startDateString);
+        const end = dayjs(endDateString);
+        const startDay = start.format("DD");
+        const endDay = end.format("DD MMM");
+        return `${startDay} - ${endDay}`;
+    }
 
     return (
         <div className="upcoming-race-card">
+            <span style={{ color: '#cccccc'}}>NEXT</span>
             <h2>{race.raceName}</h2>
             <p>{race.Circuit.circuitName}</p>
-            <p>{formatDate(race.date)} - {formatTime(race.time)}</p>
+            <p>{raceWeekend(race.FirstPractice.date, race.date)}</p>
             <div className="text-container">
             <p className="right-text">Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
             <p className="right-text">Practice 2 ({formatDate(race.SecondPractice.date)}) : {formatTime(race.SecondPractice.time)}</p>
@@ -36,6 +43,7 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
                 <p className="right-text">Sprint ({formatDate(race.Sprint.date)}) : {formatTime(race.Sprint.time)}</p>
             )}
             <p className="right-text">Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
+            <p className="right-text">Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
             </div>
         </div>
     );

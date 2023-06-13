@@ -19,13 +19,17 @@ const Home = () => {
                 const raceDataResponse = await axios.get(
                     'http://ergast.com/api/f1/current.json'
                 );
-                const lastRaceResponse = await axios.get('https://ergast.com/api/f1/current/last/results.json')
                 const raceData = raceDataResponse.data.MRData.RaceTable.Races;
-                //const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races[0].Results;
+                
+                const lastRaceResponse = await axios.get(
+                    'https://ergast.com/api/f1/current/last/results.json'
+                )
                 const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races;
+                
                 setRaces(raceData);
                 setLastRace(lastRaceData)
                 setIsLoading(false);
+
             } catch (error) {
                 console.log(error);
                 setIsLoading(false);
@@ -35,20 +39,21 @@ const Home = () => {
     }, [])
 
     const upcomingRace = races.find((race) => race && new Date(race.date) > new Date());
+    
+    /* Needs correction */
     const DaysUntilRace = (upcomingRace) => {
         if (upcomingRace) {
-            const currentDate = new Date();
-            const raceDate = new Date(upcomingRace.date);
-            const timeDifference = raceDate.getTime() - currentDate.getTime();
-
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-
+            const currentDate = dayjs();
+            const raceDate = dayjs(upcomingRace.date);
+        
+            const days = raceDate.diff(currentDate, 'days');
+            const hours = raceDate.diff(currentDate, 'hours') % 24;
+            const minutes = raceDate.diff(currentDate, 'minutes') % 60;
+        
             return `${days} days, ${hours} hours, ${minutes} minutes`;
-        }
-
-        return null;
+          }
+        
+          return null;
     };
 
 
