@@ -29,7 +29,6 @@ const RaceCard = ({ race, isLoading }) => {
     ) : (
         <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`} 
              onClick={flipCard}
-             
         >
         <div className="race-card" style={hasRacePassed ? { border: '3px solid #ccc' } : {}}>
           <div className="race-card-front">

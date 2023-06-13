@@ -10,6 +10,7 @@ const Home = () => {
     const [ races, setRaces ] = useState([]);
     const [ lastRace, setLastRace ] = useState([])
     const [ isLoading, setIsLoading ] = useState(true)
+
     dayjs.extend(relativeTime);
     
     useEffect(() => {
@@ -20,7 +21,8 @@ const Home = () => {
                 );
                 const lastRaceResponse = await axios.get('https://ergast.com/api/f1/current/last/results.json')
                 const raceData = raceDataResponse.data.MRData.RaceTable.Races;
-                const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races[0].Results;
+                //const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races[0].Results;
+                const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races;
                 setRaces(raceData);
                 setLastRace(lastRaceData)
                 setIsLoading(false);

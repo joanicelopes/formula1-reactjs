@@ -12,11 +12,8 @@ useEffect(() => {
       const result = await axios(`http://ergast.com/api/f1/current/drivers.json`)
       const driverData = result.data.MRData.DriverTable.Drivers
         setDrivers(driverData)
-        //setItems(driverStandings.map((ds) => ds.Driver));
-        //console.log(driverStandings)
-        //setStandings(driverStandings)
-        console.log(drivers)
         setIsLoading(false)
+        console.log(drivers)
     }
     fetchItems()
 },[]) 
