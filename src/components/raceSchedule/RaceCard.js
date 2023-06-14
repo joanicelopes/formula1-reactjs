@@ -35,29 +35,29 @@ const RaceCard = ({ race, isLoading }) => {
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (
-        <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`} 
-             onClick={flipCard}
+        <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`}
+            onClick={flipCard}
         >
-        <div className="race-card" style={hasRacePassed ? { border: '3px solid #ccc' } : {}}>
-          <div className="race-card-front">
-           {/* <span className="race-round">Round {race.round}</span>*/}
-            <h3>{race.raceName}</h3>
-            <h4 className="circuitName">{race.Circuit.circuitName}</h4>
-            <p>{raceWeekend(race.FirstPractice.date, race.date)}</p>
-            <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
-          </div>
-          <div className="race-card-back">
-            <p>Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
-            <p>Practice 2 ({formatDate(race.SecondPractice.date)}) : {formatTime(race.SecondPractice.time)}</p>
-              {race.ThirdPractice && (
-                  <p>Practice 3 ({formatDate(race.ThirdPractice.date)}) : {formatTime(race.ThirdPractice.time)}</p>
-              )}
-              {race.Sprint && (
-                  <p>Sprint ({formatDate(race.Sprint.date)}) : {formatTime(race.Sprint.time)}</p>
-              )}
-            <p>Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
-          </div>
-        </div>
+            <div className="race-card" style={hasRacePassed ? { border: '3px solid #ccc', borderRadius: '8px' } : {}}>
+                <div className="race-card-front">
+                    {/* <span className="race-round">Round {race.round}</span> */}
+                    <h3>{race.raceName}</h3>
+                    <h4 className="circuitName">{race.Circuit.circuitName}</h4>
+                    <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
+                    <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
+                </div>
+                <div className="race-card-back">
+                    <p>Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
+                    <p>Practice 2 ({formatDate(race.SecondPractice.date)}) : {formatTime(race.SecondPractice.time)}</p>
+                    {race.ThirdPractice && (
+                        <p>Practice 3 ({formatDate(race.ThirdPractice.date)}) : {formatTime(race.ThirdPractice.time)}</p>
+                    )}
+                    {race.Sprint && (
+                        <p>Sprint ({formatDate(race.Sprint.date)}) : {formatTime(race.Sprint.time)}</p>
+                    )}
+                    <p>Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
+                </div>
+            </div>
         </div>
     );
 };

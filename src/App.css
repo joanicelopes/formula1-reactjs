@@ -4,6 +4,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 * {
   box-sizing: border-box;
   font-family: "Formula 1", sans-serif;
@@ -122,6 +123,7 @@ body {
 .wrapper li span:last-child {
   color: #000;
 }
+
 .wrapper img {
   height: 100px;
   object-fit: contain;
@@ -132,6 +134,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
+
+  /* grid-template:             
+                  "a a a" 40px            
+                  "b c c" 40px            
+                  "b c c" 40px / 1fr 1fr 1fr;
+  */
 }
 
 .time-card-container {
@@ -145,6 +153,8 @@ body {
 .time-card-container {
   margin-top: 20px;
 }
+
+.last-race-results-container {}
 
 .time-card {
   background-color: #eeeeee;
@@ -292,7 +302,7 @@ body {
 
 .standings-table {
   background-color: #333333;
-  border: 2px solid red;
+  border: 3px solid red;
   border-radius: 8px;
   border-collapse: separate;
   border-spacing: 0;
@@ -335,16 +345,19 @@ body {
   color: white;
   cursor: pointer;
   perspective: 800px;
-  display: flex;
   border: 3px solid #ff1801;
   border-radius: 4px;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .race-card:hover {
   transform: rotateY(180deg);
 }
+
 .race-card-container {
   position: relative;
   width: 400px;
@@ -372,15 +385,31 @@ body {
   color: white;
   transform: rotateY(180deg);
 }
+
 .race-card-front h3,
 .race-card-front p,
 .race-card-back p {
   margin: 1em;
 }
 
+.race-card-front p,
+.race-card-back p {
+  color: #b2b2b2;
+}
+
 .circuitName {
   color: #5b5b5b;
   margin-left: 1em;
+}
+
+.race-round {
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 0px;
 }
 
 .upcoming-race-card {
@@ -396,38 +425,23 @@ body {
   align-items: center;
 }
 
-.upcoming-race-card-home {
-  background-color: #2d2d2d;
-  border: 3px solid #ff0000;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-
 .upcoming-race-card:hover {
   border: 3px solid #ff0000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.race-card-front p,
-.race-card-back p {
-  color: #b2b2b2;
-}
+.upcoming-race-card span {}
 
 .child2-text {
   color: #cccccc;
   font-size: 0.8em;
 }
 
-.race-round {
-  display: inline-block;
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
+.race-weekend {
+  background-color: grey;
+  width: 10ch;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .last-race-results-card {
@@ -444,18 +458,27 @@ body {
   border-spacing: 0;
   margin: 0 auto;
   border: 1px solid #2d2d2d;
-  
 }
 
 .last-race-table th {
   text-align: center;
   font-size: 0.8em;
   color: #cccccc;
+  border-left: 1px solid #2d2d2d;
+  border-right: 1px solid #2d2d2d;
 }
 
 .last-race-table td {
   font-size: 0.8em;
   padding: 0.5em;
   color: #cccccc;
-  border: 1px solid #2d2d2d;
+  border-left: 1px solid #2d2d2d;
+  border-right: 1px solid #2d2d2d;
+}
+
+.xpto {
+  background-color: #333333;
+  border: 3px solid #ff0000;
+  border-radius: 8px;
+  grid-column: 2 / -1;
 }

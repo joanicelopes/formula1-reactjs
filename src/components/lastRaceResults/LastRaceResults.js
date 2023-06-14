@@ -2,7 +2,6 @@ import React from 'react';
 
 const LastRaceResultsCard = ({ lastRace, isLoading }) => {
     const results = lastRace[0].Results;
-    console.log(lastRace)
     return lastRace && lastRace.length > 0 ? (
         <div className="last-race-results-card">
             <h2>Last Race Results</h2>
@@ -21,7 +20,7 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                     <tr key={index}>
                         <td>{result.position}</td>
                         <td>{result.Driver.givenName} {result.Driver.familyName}</td>
-                        <td>{result.Time ? result.Time.time : "+1 Lap"}</td>
+                        <td>{result.Time ? result.Time.time : result.status}</td>
                         <td>{result.points}</td>
                     </tr>
                 ))}

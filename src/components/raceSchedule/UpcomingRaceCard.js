@@ -33,7 +33,7 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
                 <span style={{ color: '#cccccc'}}>NEXT</span>
                 <h2>{race.raceName}</h2>
                 <p>{race.Circuit.circuitName}</p>
-                <p>{raceWeekend(race.FirstPractice.date, race.date)}</p>
+                <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
             </div>
             <div className="child-2">
                 <p className="child2-text">Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import DriverStandingsTable from "../components/driverStandings/DriverStandings";
 
-const DriverStandings = () =>  {
+const DriverStandings = () => {
 
     const [drivers, setDrivers] = useState([])
     const [standings, setStandings] = useState([])
@@ -23,15 +23,14 @@ const DriverStandings = () =>  {
                 }
             })
             setDrivers(result.map((ds) => ds.Driver));
-            //console.log(driverStandings)
             setStandings(driverStandings)
             setIsLoading(false)
         }
         fetchItems()
-    },[])
+    }, [])
     return (
         <div className="standings-container">
-        <DriverStandingsTable isLoading={isLoading} drivers={drivers} standings={standings}/>
+            <DriverStandingsTable isLoading={isLoading} drivers={drivers} standings={standings} />
         </div>
     )
 }

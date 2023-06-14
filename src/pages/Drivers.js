@@ -2,21 +2,21 @@ import DriverGrid from '../components/drivers/DriverGrid';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Drivers = () =>  {
+const Drivers = () => {
 
-const [drivers, setDrivers] = useState([])
-const [isLoading, setIsLoading] = useState(true)
+    const [drivers, setDrivers] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios(`http://ergast.com/api/f1/current/drivers.json`)
-      const driverData = result.data.MRData.DriverTable.Drivers
-        setDrivers(driverData)
-        setIsLoading(false)
-        console.log(drivers)
-    }
-    fetchItems()
-},[]) 
+    useEffect(() => {
+        const fetchItems = async () => {
+            const result = await axios(`http://ergast.com/api/f1/current/drivers.json`)
+            const driverData = result.data.MRData.DriverTable.Drivers
+            setDrivers(driverData)
+            setIsLoading(false)
+            console.log(drivers)
+        }
+        fetchItems()
+    }, [])
     return (
         <DriverGrid isLoading={isLoading} drivers={drivers} />
     )
