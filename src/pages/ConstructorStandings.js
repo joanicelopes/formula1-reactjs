@@ -3,7 +3,7 @@ import axios from 'axios'
 import ConstructorStandingsTable from "../components/constructorStandings/ConstructorStandings";
 
 
-const ConstructorStandings = () =>  {
+const ConstructorStandings = () => {
     const [constructors, setConstructors] = useState([])
     const [standings, setStandings] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -26,11 +26,12 @@ const ConstructorStandings = () =>  {
             setIsLoading(false)
         }
         fetchItems()
-    },[])
-    
+    }, [])
+
     return (
         <div className="standings-container">
-            <ConstructorStandingsTable isLoading={isLoading} constructors={constructors} standings={standings}/>
+            <h1 className='page-title'>Current Constructor Standings</h1>
+            <ConstructorStandingsTable isLoading={isLoading} constructors={constructors} standings={standings} />
         </div>
     )
 }

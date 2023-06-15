@@ -1,7 +1,7 @@
 import DriverGrid from '../components/drivers/DriverGrid';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import DriverCardGrid from '../components/drivers/DriversCardGrid';
 const Drivers = () => {
 
     const [drivers, setDrivers] = useState([])
@@ -18,7 +18,10 @@ const Drivers = () => {
         fetchItems()
     }, [])
     return (
-        <DriverGrid isLoading={isLoading} drivers={drivers} />
+        <div>
+            <h1 className='page-title'>Drivers</h1>
+            <DriverCardGrid isLoading={isLoading} drivers={drivers} />
+        </div>
     )
 }
 

@@ -2,31 +2,30 @@ import React from 'react';
 
 const DriverItem = ({ drivers, isLoading }) => {
   return isLoading ? (
-      <h1>Loading...</h1>
+    <h1>Loading...</h1>
   ) : (
-      <div className="wrapper">
-        <h1>Drivers</h1>
-        <table className="standings-table">
-          <thead>
+    <div className="wrapper">
+      <table className="standings-table">
+        <thead>
           <tr>
             <th>PERMANENT NUMBER</th>
             <th>DRIVER</th>
             <th>NATIONALITY</th>
             <th>CODE</th>
           </tr>
-          </thead>
-          <tbody>
+        </thead>
+        <tbody>
           {drivers.map((driver) => (
-              <tr key={driver.driverId}>
-                <td className="position-column">{driver.permanentNumber}</td>
-                <td>{driver.givenName + ' ' + driver.familyName}</td>
-                <td>{driver.nationality}</td>
-                <td>{driver.code}</td>
-              </tr>
+            <tr key={driver.driverId}>
+              <td className="position-column">{driver.permanentNumber}</td>
+              <td>{driver.givenName + ' ' + driver.familyName}</td>
+              <td>{driver.nationality}</td>
+              <td>{driver.code}</td>
+            </tr>
           ))}
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
+    </div>
   );
 };
 

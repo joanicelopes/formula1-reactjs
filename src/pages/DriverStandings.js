@@ -30,6 +30,7 @@ const DriverStandings = () => {
     }, [])
     return (
         <div className="standings-container">
+            <h1 className='page-title'>Current Driver Standings</h1>
             <DriverStandingsTable isLoading={isLoading} drivers={drivers} standings={standings} />
         </div>
     )

@@ -18,7 +18,7 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
         const cv = time.subtract(1, 'hour');
         return cv.format('HH:mm');
     };
-    
+
     const raceWeekend = (startDateString, endDateString) => {
         const start = dayjs(startDateString);
         const end = dayjs(endDateString);
@@ -29,10 +29,10 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
 
     return (
         <div className="upcoming-race-card">
-            <div  className="child-1">
-                <span style={{ color: '#cccccc'}}>NEXT</span>
-                <h2>{race.raceName}</h2>
-                <p>{race.Circuit.circuitName}</p>
+            <div className="child-1">
+                <div className='top-text'>NEXT</div>
+                <h2 className='child1-text'>{race.raceName}</h2>
+                <p className='child1-text'>{race.Circuit.circuitName}</p>
                 <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
             </div>
             <div className="child-2">

@@ -8,6 +8,8 @@
 * {
   box-sizing: border-box;
   font-family: "Formula 1", sans-serif;
+  margin: 0;
+  padding: 0;
   /*font-family: 'Montserrat', sans-serif;*/
 }
 
@@ -31,6 +33,10 @@ body {
     max-width: 100%;
     padding: 0 1rem;
   }
+}
+
+.page-title {
+  margin: 20px 20px;
 }
 
 .permanent-number {
@@ -134,12 +140,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
-
-  /* grid-template:             
-                  "a a a" 40px            
-                  "b c c" 40px            
-                  "b c c" 40px / 1fr 1fr 1fr;
-  */
 }
 
 .time-card-container {
@@ -430,11 +430,21 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.upcoming-race-card span {}
+.top-text {
+  color: #cccccc;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+
+}
+
+.child1-text {
+  padding: 0.5rem;
+}
 
 .child2-text {
   color: #cccccc;
   font-size: 0.8em;
+  padding: 0.5rem;
 }
 
 .race-weekend {
@@ -442,6 +452,7 @@ body {
   width: 10ch;
   border-radius: 10px;
   text-align: center;
+  margin-top: 0.5rem;
 }
 
 .last-race-results-card {
@@ -453,11 +464,16 @@ body {
   border-radius: 8px;
 }
 
+.last-race-results-card p {
+  padding-top: 10px;
+}
+
 .last-race-table {
   border-collapse: separate;
   border-spacing: 0;
   margin: 0 auto;
   border: 1px solid #2d2d2d;
+  margin-top: 10px;
 }
 
 .last-race-table th {
@@ -481,4 +497,67 @@ body {
   border: 3px solid #ff0000;
   border-radius: 8px;
   grid-column: 2 / -1;
+}
+
+.driver-card {
+  width: 280px;
+  height: 350px;
+  overflow: hidden;
+  background: #2d2d2d;
+  border: 1px solid #37bedd;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.driver-card:hover {
+  border: 2px solid #37bedd;
+
+}
+
+.img-container img {
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  position: relative;
+  margin-top: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+  background-color: #333333;
+  transition-duration: 0.4s;
+  transition-property: transform;
+}
+
+.img-container img:hover {
+  transform: scale(1.1);
+}
+
+.card-content h3 {
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+.card-content p {
+  font-size: 16px;
+  text-align: center;
+  padding: 5px;
+}
+
+.driver-number {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.driver-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Each row will have 4 columns */
+  gap: 20px;
 }

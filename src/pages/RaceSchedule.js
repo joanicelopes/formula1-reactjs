@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import RaceGrid from "../components/raceSchedule/RaceGrid"
+import RaceScheduleGrid from "../components/raceSchedule/RaceScheduleGrid"
 
 const RaceSchedule = () => {
-    const [ races, setRaces ] = useState([]);
-    const [ isLoading, setIsLoading ] = useState(true)
-    
+    const [races, setRaces] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         const fetchRaces = async () => {
             try {
@@ -24,7 +24,8 @@ const RaceSchedule = () => {
     }, [])
     return (
         <div>
-            <RaceGrid isLoading={isLoading} races={races} />
+            <h1 className='page-title'> Race Schedule</h1>
+            <RaceScheduleGrid isLoading={isLoading} races={races} />
         </div>
     )
 }
