@@ -6,9 +6,12 @@ const DriverCardGrid = ({ drivers, isLoading }) => {
         <h1>Loading...</h1>
     ) : (
         <div className='driver-card-grid'>
-            {drivers.map((driver) => (
-                <DriverCard key={driver.driverId} driver={driver} />
-            ))}
+            {drivers.map((driver) => {
+                // const dt = drivers.find((d) => d.driverId === standings.driverId);
+                return (
+                    <DriverCard key={driver.driverId} driver={driver}/>
+                )
+            })}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import RaceScheduleGrid from "../components/raceSchedule/RaceScheduleGrid"
 
 const RaceSchedule = () => {
     const [races, setRaces] = useState([]);
+    const [raceResults, setRaceResults] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -13,6 +14,7 @@ const RaceSchedule = () => {
                     'http://ergast.com/api/f1/current.json'
                 );
                 const raceData = response.data.MRData.RaceTable.Races;
+
                 setRaces(raceData);
                 setIsLoading(false);
             } catch (error) {
@@ -21,11 +23,26 @@ const RaceSchedule = () => {
             }
         }
         fetchRaces()
-    }, [])
+
+        const fetchResults = async () => {
+            try {
+                for (const race of races) {
+                    const raceResultsResponse = await axios.get(
+                        `http://ergast.com/api/f1/${race.season}/${race.round}/results.json`
+                    );
+                    const raceResultsData = raceResultsResponse.data.MRData.RaceTable.Races;
+                    setRaceResults((prevRaceResults) => [...prevRaceResults, ...raceResultsData]);
+                }
+            } catch (error) {
+                console.error('Error fetching race results:', error);
+            }
+        };
+        fetchResults()
+    }, [races])
     return (
         <div>
             <h1 className='page-title'> Race Schedule</h1>
-            <RaceScheduleGrid isLoading={isLoading} races={races} />
+            <RaceScheduleGrid isLoading={isLoading} races={races} raceResults={raceResults} />
         </div>
     )
 }

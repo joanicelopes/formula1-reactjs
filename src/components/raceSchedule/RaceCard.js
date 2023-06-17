@@ -1,12 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 import dayjs from 'dayjs';
+import Modal from "../Modal/Modal";
 
-const RaceCard = ({ race, isLoading }) => {
+const RaceCard = ({ race, raceResults, isLoading }) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleViewResultsClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     const flipCard = () => {
         setIsFlipped(!isFlipped);
+    };
+
+    const handleCardClick = () => {
+        if (!hasRacePassed) {
+            flipCard();
+        }
     };
 
     const formatDate = (dateString) => {
@@ -36,15 +52,17 @@ const RaceCard = ({ race, isLoading }) => {
         <h1>Loading...</h1>
     ) : (
         <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`}
-            onClick={flipCard}
+            onClick={handleCardClick}
         >
-            <div className="race-card" style={hasRacePassed ? { border: '3px solid #ccc', borderRadius: '8px' } : {}}>
+            <div className="race-card" style={hasRacePassed ? { border: '1px solid #ccc', borderRadius: '8px' } : {}}>
                 <div className="race-card-front">
-                    {/* <span className="race-round">Round {race.round}</span> */}
+                    <span className="race-round">Round {race.round}</span>
                     <h3>{race.raceName}</h3>
-                    <h4 className="circuitName">{race.Circuit.circuitName}</h4>
+                    <h4 className="circuit-name">{race.Circuit.circuitName}</h4>
                     <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
                     <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
+                    {hasRacePassed && <button className="race-results-btn" onClick={handleViewResultsClick}>View Results</button>}
+                    {/* <Modal season={race.season} raceRound={race.round} raceResults={raceResults} /> */}
                 </div>
                 <div className="race-card-back">
                     <p>Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
@@ -58,6 +76,9 @@ const RaceCard = ({ race, isLoading }) => {
                     <p>Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
                 </div>
             </div>
+            {isModalOpen && (
+                <Modal season={race.season} round={race.round} raceResults={raceResults} closeModal={handleCloseModal} />
+            )}
         </div>
     );
 };

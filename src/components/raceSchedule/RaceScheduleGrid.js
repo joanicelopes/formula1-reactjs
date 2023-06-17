@@ -2,7 +2,7 @@ import React from 'react';
 import RaceCard from './RaceCard';
 import UpcomingRaceCard from './UpcomingRaceCard';
 
-const RaceScheduleGrid = ({ races, isLoading }) => {
+const RaceScheduleGrid = ({ races, raceResults, isLoading }) => {
     const upcomingRace = races.find((race) => new Date(race.date) > new Date())
     return isLoading ? (
         <h1>Loading...</h1>
@@ -15,11 +15,11 @@ const RaceScheduleGrid = ({ races, isLoading }) => {
             )}
             <div className="race-grid">
                 {races.map((race) => (
-                    <RaceCard key={race.round} race={race} />
+                    <RaceCard key={race.round} race={race} raceResults={raceResults} />
                 ))}
             </div>
         </div>
     )
 }
 
-export default RaceScheduleGrid
+export default RaceScheduleGrid;

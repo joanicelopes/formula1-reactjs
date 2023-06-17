@@ -40,20 +40,27 @@ const Home = () => {
 
     const upcomingRace = races.find((race) => race && new Date(race.date) > new Date());
 
-    /* Needs correction */
-    const DaysUntilRace = (upcomingRace) => {
-        if (upcomingRace) {
+    const DaysUntilRace = () => {
+        /* if (upcomingRace) {
             const currentDate = dayjs();
-            const raceDate = dayjs(upcomingRace.date);
+            const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
 
-            const days = raceDate.diff(currentDate, 'days');
-            const hours = raceDate.diff(currentDate, 'hours') % 24;
-            const minutes = raceDate.diff(currentDate, 'minutes') % 60;
+            const days = raceDateTime.diff(currentDate, 'days');
+            const hours = raceDateTime.diff(currentDate, 'hours') % 24;
+            const minutes = raceDateTime.diff(currentDate, 'minutes') % 60;
 
             return `${days} days, ${hours} hours, ${minutes} minutes`;
         }
 
+        return null; */
+
+        if (upcomingRace) {
+            const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
+            return raceDateTime.fromNow();
+        }
+
         return null;
+
     };
 
 
@@ -64,7 +71,7 @@ const Home = () => {
             <Header />
             <div className="time-card-container">
                 <div className="time-card">
-                    <div className="time-card-header">Next Race in:</div>
+                    <div className="time-card-header">Next Race:</div>
                     <div className="time-card-content">{DaysUntilRace(upcomingRace)}</div>
                 </div>
             </div>

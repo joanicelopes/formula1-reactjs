@@ -5,11 +5,9 @@ const ConstructorCard = ({ item, isLoading }) => {
     const flipCard = () => {
         setIsFlipped(!isFlipped);
     };
-    console.log('isFlipped:', isFlipped);
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (
-        /*<div className={`constructor-card ${isFlipped ? 'flipped' : ''} constructor-${item.constructorId}`} onClick={flipCard}> */
         <div className={`constructor-card-container ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
             <div className={`constructor-card constructor-${item.constructorId}`}>
                 {/*<span className="constructor-country">{item.nationality}</span>*/}
@@ -27,7 +25,6 @@ const ConstructorCard = ({ item, isLoading }) => {
                 </div>
             </div>
         </div>
-        /*</div>*/
     );
 };
 
