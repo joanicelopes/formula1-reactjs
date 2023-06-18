@@ -48,9 +48,14 @@ const Modal = ({ season, round, raceResults, closeModal }) => {
             </div>
         </div>
     ) : (
-        <div className="lastrace-results-card">
-            <h2>Race Results</h2>
-            <p>No Info</p>
+        <div className="modal-background">
+            <div className="no-info-container">
+                <div className="close-btn">
+                    <button onClick={handleCloseModal}> X </button>
+                </div>
+                <h2>Race Results</h2>
+                <p>No Info</p>
+            </div>
         </div>
     )
 

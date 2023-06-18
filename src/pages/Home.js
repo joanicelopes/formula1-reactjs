@@ -56,11 +56,30 @@ const Home = () => {
 
         if (upcomingRace) {
             const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
+            console.log(convertTimeZone(upcomingRace.time))
             return raceDateTime.fromNow();
         }
 
         return null;
 
+    };
+
+    const convertTimeZone = (timeString) => {
+        if (!timeString) {
+            return ['', ''];
+        }
+
+        const today = new Date();
+        const timeZone = today.getTimezoneOffset() / -60;
+        let [hours, minutes, second] = timeString.split(':');
+
+        if ((+hours + timeZone) % 24 < 10) {
+            hours = '0' + (+hours + timeZone) % 24;
+        } else {
+            hours = +hours + timeZone;
+        }
+
+        return hours + ":" + minutes;
     };
 
 
@@ -71,7 +90,7 @@ const Home = () => {
             <Header />
             <div className="time-card-container">
                 <div className="time-card">
-                    <div className="time-card-header">Next Race:</div>
+                    <div className="time-card-header">Next Race</div>
                     <div className="time-card-content">{DaysUntilRace(upcomingRace)}</div>
                 </div>
             </div>
