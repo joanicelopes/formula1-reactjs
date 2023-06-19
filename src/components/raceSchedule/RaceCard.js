@@ -43,11 +43,70 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
         const end = dayjs(endDateString);
         const startDay = start.format("DD");
         const endDay = end.format("DD MMM");
-        return `${startDay} - ${endDay}`;
+
+        if (start.isSame(end, 'month')) {
+            return `${startDay} - ${endDay}`;
+        } else {
+            return `${startDay} ${start.format("MMM")} - ${endDay}`;
+        }
     }
 
     const hasRacePassed = new Date(race.date) < new Date(); // Check if the race date has passed
 
+    //------------------------------------------------------//
+    const sessions = [];
+
+    if (race.FirstPractice) {
+        sessions.push({
+            name: 'First Practice',
+            date: race.FirstPractice.date,
+            time: race.FirstPractice.time,
+        });
+    }
+    if (race.SecondPractice) {
+        sessions.push({
+            name: 'Second Practice',
+            date: race.SecondPractice.date,
+            time: race.SecondPractice.time,
+        });
+    }
+    if (race.ThirdPractice) {
+        sessions.push({
+            name: 'Third Practice',
+            date: race.ThirdPractice.date,
+            time: race.ThirdPractice.time,
+        });
+    }
+    if (race.Qualifying) {
+        sessions.push({
+            name: 'Qualifying',
+            date: race.Qualifying.date,
+            time: race.Qualifying.time,
+        });
+    }
+    if (race.Sprint) {
+        sessions.push({
+            name: 'Sprint',
+            date: race.Sprint.date,
+            time: race.Sprint.time,
+        });
+    }
+    if (race) {
+        sessions.push({
+            name: 'Race',
+            date: race.date,
+            time: race.time,
+        });
+    }
+
+    sessions.sort((a, b) => {
+        const first = a.date + a.time;
+        const second = b.date + b.time;
+
+        return first.localeCompare(second);
+    });
+    //------------------------------------------------------//
+    
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (
@@ -61,26 +120,28 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
                     <h4 className="circuit-name">{race.Circuit.circuitName}</h4>
                     <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
                     <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
-                    {hasRacePassed && <button className="race-results-btn" onClick={handleViewResultsClick}>View Results</button>}
-                    {/* <Modal season={race.season} raceRound={race.round} raceResults={raceResults} /> */}
+                    {hasRacePassed && 
+                        <button className="race-results-btn" onClick={handleViewResultsClick}>View Results</button>
+                    }
                 </div>
                 <div className="race-card-back">
-                    <p>Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
-                    <p>Practice 2 ({formatDate(race.SecondPractice.date)}) : {formatTime(race.SecondPractice.time)}</p>
-                    {race.ThirdPractice && (
-                        <p>Practice 3 ({formatDate(race.ThirdPractice.date)}) : {formatTime(race.ThirdPractice.time)}</p>
-                    )}
-                    {race.Sprint && (
-                        <p>Sprint ({formatDate(race.Sprint.date)}) : {formatTime(race.Sprint.time)}</p>
-                    )}
-                    <p>Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
+                    {sessions.map((session) => (
+                        <p key={session.name}>
+                            {session.name} ({formatDate(session.date)}) : {formatTime(session.time)}
+                        </p>
+                    ))}
                 </div>
+
             </div>
             {isModalOpen && (
-                <Modal season={race.season} round={race.round} raceResults={raceResults} closeModal={handleCloseModal} />
+                <Modal 
+                    season={race.season} 
+                    round={race.round} 
+                    raceResults={raceResults} 
+                    closeModal={handleCloseModal} 
+                />
             )}
         </div>
     );
 };
-
 export default RaceCard;

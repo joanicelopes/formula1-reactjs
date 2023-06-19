@@ -56,7 +56,6 @@ const Home = () => {
 
         if (upcomingRace) {
             const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
-            console.log(convertTimeZone(upcomingRace.time))
             return raceDateTime.fromNow();
         }
 

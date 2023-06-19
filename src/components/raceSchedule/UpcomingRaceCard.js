@@ -23,9 +23,66 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
         const start = dayjs(startDateString);
         const end = dayjs(endDateString);
         const startDay = start.format("DD");
-        const endDay = end.format("DD MMMM");
-        return `${startDay} - ${endDay}`;
+        const endDay = end.format("DD MMM");
+
+        if (start.isSame(end, 'month')) {
+            return `${startDay} - ${endDay}`;
+        } else {
+            return `${startDay} ${start.format("MMM")} - ${endDay}`;
+        }
     }
+
+    const sessions = [];
+
+    if (race.FirstPractice) {
+        sessions.push({
+            name: 'First Practice',
+            date: race.FirstPractice.date,
+            time: race.FirstPractice.time,
+        });
+    }
+    if (race.SecondPractice) {
+        sessions.push({
+            name: 'Second Practice',
+            date: race.SecondPractice.date,
+            time: race.SecondPractice.time,
+        });
+    }
+    if (race.ThirdPractice) {
+        sessions.push({
+            name: 'Third Practice',
+            date: race.ThirdPractice.date,
+            time: race.ThirdPractice.time,
+        });
+    }
+    if (race.Qualifying) {
+        sessions.push({
+            name: 'Qualifying',
+            date: race.Qualifying.date,
+            time: race.Qualifying.time,
+        });
+    }
+    if (race.Sprint) {
+        sessions.push({
+            name: 'Sprint',
+            date: race.Sprint.date,
+            time: race.Sprint.time,
+        });
+    }
+    if (race) {
+        sessions.push({
+            name: 'Race',
+            date: race.date,
+            time: race.time,
+        });
+    }
+
+    sessions.sort((a, b) => {
+        const first = a.date + a.time;
+        const second = b.date + b.time;
+
+        return first.localeCompare(second);
+    });
 
     return (
         <div className="upcoming-race-card">
@@ -36,16 +93,11 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
                 <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
             </div>
             <div className="child-2">
-                <p className="child2-text">Practice 1 ({formatDate(race.FirstPractice.date)}) : {formatTime(race.FirstPractice.time)}</p>
-                <p className="child2-text">Practice 2 ({formatDate(race.SecondPractice.date)}) : {formatTime(race.SecondPractice.time)}</p>
-                {race.ThirdPractice && (
-                    <p className="child2-text">Practice 3 ({formatDate(race.ThirdPractice.date)}) : {formatTime(race.ThirdPractice.time)}</p>
-                )}
-                {race.Sprint && (
-                    <p className="child2-text">Sprint ({formatDate(race.Sprint.date)}) : {formatTime(race.Sprint.time)}</p>
-                )}
-                <p className="child2-text">Qualifying ({formatDate(race.Qualifying.date)}) : {formatTime(race.Qualifying.time)}</p>
-                <p className="child2-text">Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
+                {sessions.map((session) => (
+                    <p className="child2-text" key={session.name}>
+                        {session.name} ({formatDate(session.date)}) : {formatTime(session.time)}
+                    </p>
+                ))}
             </div>
         </div>
     );

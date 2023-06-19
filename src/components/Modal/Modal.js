@@ -39,7 +39,6 @@ const Modal = ({ season, round, raceResults, closeModal }) => {
                                     <td>{result.Time ? result.Time.time : result.status}</td>
                                     <td>{result.points}</td>
                                     <td>{result.laps}</td>
-
                                 </tr>
                             ))}
                         </tbody>

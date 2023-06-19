@@ -1,591 +1,607 @@
 @font-face {
-  font-family: "Formula 1";
-  src: url("../public/fonts/Formula1-Regular-1.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Formula 1";
+    src: url("../public/fonts/Formula1-Regular-1.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
-  box-sizing: border-box;
-  font-family: "Formula 1", sans-serif;
-  margin: 0;
-  padding: 0;
-  /*font-family: 'Montserrat', sans-serif;*/
+    box-sizing: border-box;
+    font-family: "Formula 1", sans-serif;
+    margin: 0;
+    padding: 0;
+    /*font-family: 'Montserrat', sans-serif;*/
 }
 
 body {
-  background: #42445a;
-  height: 100vh;
-  color: #fff;
-  margin: 0;
-  padding: clamp(1rem, 2vw, 3rem);
-  font-size: 1.1rem;
+    background: #42445a;
+    height: 100vh;
+    color: #fff;
+    margin: 0;
+    padding: clamp(1rem, 2vw, 3rem);
+    font-size: 1.1rem;
 }
 
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 @media (max-width: 720px) {
-  .container {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
+    .container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
 }
 
 .page-title {
-  margin: 20px 20px;
+    margin: 20px 20px;
 }
 
 .permanent-number {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  margin-right: 8px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 14px;
-  color: #333;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-right: 8px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
 }
 
 .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav {
-  background-color: #e10600;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 0 1rem;
-  font-size: 1em;
+    background-color: #e10600;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
+    font-size: 1em;
 }
 
 .nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
 }
 
 .nav a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .nav li:hover {
-  color: silver;
+    color: silver;
 }
 
 .nav li:active {
-  color: #5b5b5b;
+    color: #5b5b5b;
 }
 
 .img-responsive {
-  margin: 0 auto;
-  height: auto;
-  width: auto;
-  max-width: 80px;
-  max-height: 80px;
+    margin: 0 auto;
+    height: auto;
+    width: auto;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 .wrapper {
-  max-width: 40rem;
-  margin: 0 auto;
+    max-width: 40rem;
+    margin: 0 auto;
 }
 
 .wrapper ol {
-  padding: 1.5rem 1.5rem 1.5rem;
-  border: 0.2rem solid #fff;
-  background: #fff;
-  font-weight: bold;
-  columns: 8rem;
-  column-gap: 4rem;
-  column-rule: 5px solid #ff1801;
-  border-radius: 0.5rem;
-  list-style: none;
+    padding: 1.5rem 1.5rem 1.5rem;
+    border: 0.2rem solid #fff;
+    background: #fff;
+    font-weight: bold;
+    columns: 8rem;
+    column-gap: 4rem;
+    column-rule: 5px solid #ff1801;
+    border-radius: 0.5rem;
+    list-style: none;
 }
 
 .wrapper li span {
-  display: flex;
-  color: #000;
+    display: flex;
+    color: #000;
 }
 
 .wrapper li span:first-child {
-  font-size: 1.5em;
-  color: #ff1801;
+    font-size: 1.5em;
+    color: #ff1801;
 }
 
 .wrapper li span:last-child {
-  color: #000;
+    color: #000;
 }
 
 .wrapper img {
-  height: 100px;
-  object-fit: contain;
-  margin-left: 20px;
+    height: 100px;
+    object-fit: contain;
+    margin-left: 20px;
 }
 
 .home-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 .time-card-container {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
 .upcoming-race-container-home {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
 .time-card-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .time-card {
-  background-color: #eeeeee;
-  border: 1px solid #ff0000;
-  border-radius: 4px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+    background-color: #eeeeee;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .time-card-header {
-  margin-bottom: 8px;
-  color: #ff0000;
-  font-size: 25px;
+    margin-bottom: 8px;
+    color: #ff0000;
+    font-size: 25px;
 }
 
 .time-card-content {
-  color: #ff0000;
-  font-size: 25px;
+    color: #ff0000;
+    font-size: 25px;
 }
 
 .constructor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .constructor-card-container {
-  position: relative;
-  width: 350px;
-  height: 100px;
-  margin-top: 20px;
+    position: relative;
+    width: 350px;
+    height: 100px;
+    margin-top: 20px;
 }
 
 .constructor-card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease;
-  background: #333333;
-  color: white;
-  cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    background: #333333;
+    color: white;
+    cursor: pointer;
 }
 
 .constructor-card-container.flipped .constructor-card {
-  transform: scale(1.05) rotateY(180deg);
+    transform: scale(1.05) rotateY(180deg);
 }
 
 .constructor-card-front {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 
 }
 
 .constructor-card-back {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 .constructor-card h3 {
-  font-size: 1.2rem;
-  padding: 10px;
+    font-size: 1.2rem;
+    padding: 10px;
 }
 
 .constructor-country {
-  display: inline-block;
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 4px;
-  border-radius: 4px;
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 4px;
+    border-radius: 4px;
 }
 
 .constructor-card-back ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .constructor-card-back li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .constructor-card-back p {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .constructor-mercedes {
-  border: 1px solid #6cd3bf;
+    border: 1px solid #6cd3bf;
 }
 
 .constructor-ferrari {
-  border: 1px solid #ed1c24;
+    border: 1px solid #ed1c24;
 }
 
 .constructor-mclaren {
-  border: 1px solid #f58020;
+    border: 1px solid #f58020;
 }
 
 .constructor-red_bull {
-  border: 1px solid #1e5bc6;
+    border: 1px solid #1e5bc6;
 }
 
 .constructor-aston_martin {
-  border: 1px solid #2d826d;
+    border: 1px solid #2d826d;
 }
 
 .constructor-alphatauri {
-  border: 1px solid #4e7c9b;
+    border: 1px solid #4e7c9b;
 }
 
 .constructor-alpine {
-  border: 1px solid #2293d1;
+    border: 1px solid #2293d1;
 }
 
 .constructor-alfa {
-  border: 1px solid #b12039;
+    border: 1px solid #b12039;
 }
 
 .constructor-williams {
-  border: 1px solid #37bedd;
+    border: 1px solid #37bedd;
 }
 
 .constructor-haas {
-  border: 1px solid #b6babd;
+    border: 1px solid #b6babd;
 }
 
 .standings-table {
-  background-color: #333333;
-  border: 1px solid red;
-  border-radius: 8px;
-  border-collapse: separate;
-  border-spacing: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-  width: 100%;
-  max-width: 800px;
+    background-color: #333333;
+    border: 1px solid red;
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
 }
 
 .standings-table th {
-  text-align: center;
-  padding: 8px;
-  border: 1px solid #2d2d2d;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #2d2d2d;
 }
 
 .standings-table td {
-  text-align: center;
-  padding: 8px;
-  font-size: 1rem;
-  color: #eeeeee;
-  border: 1px solid #2d2d2d;
+    text-align: center;
+    padding: 8px;
+    font-size: 1rem;
+    color: #eeeeee;
+    border: 1px solid #2d2d2d;
 }
 
 .position-column {
-  width: 10%;
-  text-align: center;
+    width: 10%;
+    text-align: center;
 }
 
 .race-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 .race-card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #2d2d2d;
-  color: white;
-  cursor: pointer;
-  perspective: 1000px;
-  border: 1px solid #ff1801;
-  border-radius: 4px;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #2d2d2d;
+    color: white;
+    cursor: pointer;
+    perspective: 1000px;
+    border: 1px solid #ff1801;
+    border-radius: 4px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .race-card-container.flipped .race-card {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 
 .race-card-container {
-  position: relative;
-  width: 400px;
-  height: 220px;
-  margin-top: 20px;
-  display: flex;
+    position: relative;
+    width: 400px;
+    height: 220px;
+    margin-top: 20px;
+    display: flex;
 }
 
 .race-card-front {
-  position: absolute;
-  padding: 0.5em;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.race-card-back {
-  position: absolute;
-  padding: 1em;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 }
 
 .race-card-front h3,
-.race-card-front p,
-.race-card-back p {
-  margin-left: 0.8em;
-  margin-top: 0.8em;
+.race-card-front h4,
+.race-card-front p{
+    margin-left: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.race-card-back {
+    position: absolute;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 .race-card-back p {
-  color: #b2b2b2;
+    margin-left: 0.8em;
+    margin-top: 0.8em;
+}
+
+.race-card-back p {
+    color: #b2b2b2;
 }
 
 .circuit-name {
-  color: #b2b2b2;
-  margin: 0.8em;
+    color: #b2b2b2;
 }
 
 .race-results-btn {
-  width: 12ch;
-  margin: 1em;
-  padding: 0.1em;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  background-color: #f2f2f2;
-  color: #333;
+    width: 12ch;
+    margin: 1em;
+    padding: 0.1em;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: none;
 }
 
 .race-round {
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  margin: 0.8em;
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: 0.8rem;
+    margin-top: 0.8rem;
 }
 
 .upcoming-race-card {
-  background-color: #2d2d2d;
-  border: 1px solid #ff0000;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #2d2d2d;
+    border: 1px solid #ff0000;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .upcoming-race-card:hover {
-  border: 2px solid #ff0000;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    border: 2px solid #ff0000;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 .top-text {
-  color: #cccccc;
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
+    color: #cccccc;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
 
 }
 
 .child1-text {
-  padding: 0.5rem;
+    padding: 0.5rem;
 }
 
 .child2-text {
-  color: #cccccc;
-  font-size: 0.8em;
-  padding: 0.5rem;
+    color: #cccccc;
+    font-size: 0.8em;
+    padding: 0.5rem;
 }
 
+/* element will automatically adjust based on the length of the text content */
 .race-weekend {
-  background-color: grey;
-  width: 10ch;
-  border-radius: 10px;
-  text-align: center;
-  margin-top: 0.5rem;
+    background-color: grey;
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 .last-race-results-card {
-  background-color: #333333;
-  border: 1px solid #ff0000;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
+    background-color: #333333;
+    border: 1px solid #ff0000;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }
 
 .last-race-results-card p {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .race-result-body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: start;
-  margin-top: 10px;
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    margin-top: 10px;
 }
 
 .race-result-table {
-  margin: 0 auto;
-  margin-top: 20px;
+    margin: 0 auto;
 }
 
 .race-result-table th {
-  text-align: center;
-  font-size: 0.8em;
-  color: #cccccc;
+    text-align: center;
+    font-size: 0.8em;
+    color: #cccccc;
 }
 
 .race-result-table td {
-  font-size: 0.8em;
-  padding: 0.5em;
-  color: #cccccc;
+    font-size: 0.8em;
+    padding: 0.5em;
+    color: #cccccc;
+}
+
+.last-race-result-table th {
+    text-align: left;
+    font-size: 0.8em;
+    padding: 0.1em;
 }
 
 .last-race-result-table td {
-  font-size: 0.8em;
-  padding: 0.1em;
-  color: #cccccc;
+    font-size: 0.7em;
+    padding: 0.1em;
+    color: #cccccc;
 }
 
 .xpto {
-  background-color: #333333;
-  border: 1px solid #ff0000;
-  border-radius: 8px;
-  grid-column: 2 / -1;
+    background-color: #333333;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    grid-column: 2 / -1;
 }
 
 .driver-card {
-  width: 280px;
-  height: 350px;
-  overflow: hidden;
-  background: #2d2d2d;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
+    width: 280px;
+    height: 350px;
+    overflow: hidden;
+    background: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 .driver-card:hover {
-  border: 2px solid #2d2d2d;
+    border: 2px solid #2d2d2d;
 
 }
 
 .img-container img {
-  z-index: 1;
-  width: 160px;
-  height: 160px;
-  position: relative;
-  margin-top: 25px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 100px;
-  background-color: #333333;
-  transition-duration: 0.4s;
-  transition-property: transform;
+    z-index: 1;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    margin-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    background-color: #333333;
+    transition-duration: 0.4s;
+    transition-property: transform;
 }
 
 .img-container img:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .card-content h3 {
-  font-size: 20px;
-  text-align: center;
-  margin: 0;
-  padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
 }
 
 .card-content p {
-  font-size: 16px;
-  text-align: center;
-  padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
 }
 
 .driver-number {
-  font-size: 40px;
-  font-weight: bold;
-  padding-left: 1rem;
-  padding-top: 1rem;
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }
 
 .driver-card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* Each row will have 4 columns */
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Each row will have 4 columns */
+    gap: 20px;
 }
 
 .no-info-container {
-  width: 400px;
-  height: 400px;
-  border-radius: 12px;
-  background-color: #2d2d2d;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
-  z-index: 10000;
+    width: 400px;
+    height: 400px;
+    border-radius: 12px;
+    background-color: #2d2d2d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    z-index: 10000;
 }
