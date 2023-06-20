@@ -69,7 +69,7 @@ const Home = () => {
         }
 
         const today = new Date();
-        const timeZone = today.getTimezoneOffset() / -60;
+        const timeZone = today.getTimezoneOffset() / -60; // offset(minutes) / -60 = hours 
         let [hours, minutes, second] = timeString.split(':');
 
         if ((+hours + timeZone) % 24 < 10) {
