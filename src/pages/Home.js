@@ -22,7 +22,7 @@ const Home = () => {
                 const raceData = raceDataResponse.data.MRData.RaceTable.Races;
 
                 const lastRaceResponse = await axios.get(
-                    'https://ergast.com/api/f1/current/last/results.json'
+                    'http://ergast.com/api/f1/current/last/results.json'
                 )
                 const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races;
 

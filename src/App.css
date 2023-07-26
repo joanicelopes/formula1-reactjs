@@ -667,6 +667,7 @@ body {
 }
 
 .last-race-result-table th {
+    text-align: left;
     font-size: 0.8em;
     padding: 0.3em;
 }
