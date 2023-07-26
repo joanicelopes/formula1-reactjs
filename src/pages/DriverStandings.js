@@ -10,7 +10,7 @@ const DriverStandings = () => {
 
     useEffect(() => {
         const fetchItems = async () => {
-            const response = await axios(`http://ergast.com/api/f1/current/driverStandings.json`)
+            const response = await axios(`https://ergast.com/api/f1/current/driverStandings.json`)
             const result = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
             const driverStandings = result.map((driver) => {
                 return {

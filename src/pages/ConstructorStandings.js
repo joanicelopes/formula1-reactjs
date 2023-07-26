@@ -10,7 +10,7 @@ const ConstructorStandings = () => {
 
     useEffect(() => {
         const fetchItems = async () => {
-            const response = await axios(`http://ergast.com/api/f1/current/constructorStandings.json`)
+            const response = await axios(`https://ergast.com/api/f1/current/constructorStandings.json`)
             const result = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
             const constructorStandings = result.map((constructor) => {
                 return {

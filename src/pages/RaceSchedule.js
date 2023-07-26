@@ -28,7 +28,7 @@ const RaceSchedule = () => {
             try {
                 for (const race of races) {
                     const raceResultsResponse = await axios.get(
-                        `http://ergast.com/api/f1/${race.season}/${race.round}/results.json`
+                        `https://ergast.com/api/f1/${race.season}/${race.round}/results.json`
                     );
                     const raceResultsData = raceResultsResponse.data.MRData.RaceTable.Races;
                     setRaceResults((prevRaceResults) => [...prevRaceResults, ...raceResultsData]);
