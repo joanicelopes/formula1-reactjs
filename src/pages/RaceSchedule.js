@@ -11,7 +11,7 @@ const RaceSchedule = () => {
         const fetchRaces = async () => {
             try {
                 const response = await axios.get(
-                    'http://ergast.com/api/f1/current.json'
+                    'https://ergast.com/api/f1/current.json'
                 );
                 const raceData = response.data.MRData.RaceTable.Races;
 
