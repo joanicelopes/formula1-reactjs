@@ -21,7 +21,7 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                         {results.map((result, index) => (
                             <tr key={index}>
                                 <td>{result.position}</td>
-                                <td>{result.Driver.givenName} {result.Driver.familyName}</td>
+                                <td>{result.Driver.code}</td>
                                 <td>{result.Time ? result.Time.time : result.status}</td>
                                 <td>{result.points}</td>
                                 <td>{result.laps}</td>

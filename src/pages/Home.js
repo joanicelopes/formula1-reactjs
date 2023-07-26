@@ -41,18 +41,6 @@ const Home = () => {
     const upcomingRace = races.find((race) => race && new Date(race.date) > new Date());
 
     const DaysUntilRace = () => {
-        /* if (upcomingRace) {
-            const currentDate = dayjs();
-            const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
-
-            const days = raceDateTime.diff(currentDate, 'days');
-            const hours = raceDateTime.diff(currentDate, 'hours') % 24;
-            const minutes = raceDateTime.diff(currentDate, 'minutes') % 60;
-
-            return `${days} days, ${hours} hours, ${minutes} minutes`;
-        }
-
-        return null; */
 
         if (upcomingRace) {
             const raceDateTime = dayjs(`${upcomingRace.date} ${upcomingRace.time}`, 'YYYY-MM-DD HH:mm');
@@ -60,27 +48,7 @@ const Home = () => {
         }
 
         return null;
-
     };
-
-    const convertTimeZone = (timeString) => {
-        if (!timeString) {
-            return ['', ''];
-        }
-
-        const today = new Date();
-        const timeZone = today.getTimezoneOffset() / -60; // offset(minutes) / -60 = hours 
-        let [hours, minutes, second] = timeString.split(':');
-
-        if ((+hours + timeZone) % 24 < 10) {
-            hours = '0' + (+hours + timeZone) % 24;
-        } else {
-            hours = +hours + timeZone;
-        }
-
-        return hours + ":" + minutes;
-    };
-
 
     return isLoading ? (
         <h1>Loading...</h1>
@@ -89,8 +57,8 @@ const Home = () => {
             <Header />
             <div className="time-card-container">
                 <div className="time-card">
-                    <div className="time-card-header">Next Race</div>
-                    <div className="time-card-content">{DaysUntilRace(upcomingRace)}</div>
+                    <div className="time-card-left">Next Race</div>
+                    <div className="time-card-right">{DaysUntilRace(upcomingRace)}</div>
                 </div>
             </div>
             {upcomingRace && (

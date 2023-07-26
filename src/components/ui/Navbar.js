@@ -22,22 +22,22 @@ export default function Navbar() {
                     <button><a href="/drivers">Drivers</a></button>
                     <button><a href="/constructors">Constructors</a></button>
             </div>*/}
-            <a href="/" className="site-title"><img src={logo} className="img-responsive" alt="Home" /></a>
+            <a href="/" className="site-title"><img src={logo} className="img-responsive" title="Home" alt='Home' /></a>
             <ul>
                 <li><a href="/drivers">Drivers</a></li>
                 <li><a href="/constructors">Constructors</a></li>
                 <li>
-                    <a>Standings</a>
+                    <button href="/">Standings</button>
                     <ul className="nav-dropdown">
                         <li><a href="/driverstandings">Drivers</a></li>
                         <li><a href="/constructorstandings">Constructors</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a>Races</a>
+                    <button href="/">Races</button>
                     <ul className="nav-dropdown">
                         <li><a href="/raceschedule">Race Schedule</a></li>
-                        <li><a>Race Results</a></li>
+                        <li><a href="/">Race Results</a></li>
                     </ul>
                 </li>
             </ul>

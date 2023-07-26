@@ -80,7 +80,6 @@ const UpcomingRaceCard = ({ race, isLoading }) => {
     sessions.sort((a, b) => {
         const first = a.date + a.time;
         const second = b.date + b.time;
-
         return first.localeCompare(second);
     });
 
