@@ -6,10 +6,11 @@ import Constructors from './pages/Constructors';
 import DriverStandings from './pages/DriverStandings';
 import ConstructorStandings from './pages/ConstructorStandings';
 import RaceSchedule from './pages/RaceSchedule';
+import RaceResults from './pages/RaceResults';
 
 const App = () => {
   let component
-  
+
   switch (window.location.pathname) {
     case "/":
       component = <Home />
@@ -17,9 +18,9 @@ const App = () => {
     case "/drivers":
       component = <Drivers />
       break
-      case "/constructors":
-        component = <Constructors />
-        break
+    case "/constructors":
+      component = <Constructors />
+      break
     case "/driverstandings":
       component = <DriverStandings />
       break
@@ -29,11 +30,14 @@ const App = () => {
     case "/raceschedule":
       component = <RaceSchedule />
       break
+    case "/raceresults":
+      component = <RaceResults />
+      break
     default:
       component = <App />
   }
 
-  return ( 
+  return (
     <div >
       <div>
         <Navbar />

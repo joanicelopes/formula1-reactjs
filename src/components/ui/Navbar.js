@@ -37,7 +37,7 @@ export default function Navbar() {
                     <button href="/">Races</button>
                     <ul className="nav-dropdown">
                         <li><a href="/raceschedule">Race Schedule</a></li>
-                        <li><a href="/">Race Results</a></li>
+                        <li><a href="/raceresults">Race Results</a></li>
                     </ul>
                 </li>
             </ul>
