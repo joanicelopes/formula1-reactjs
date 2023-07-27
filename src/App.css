@@ -740,8 +740,6 @@ body {
     padding-top: 1rem;
 }
 
-
-
 .no-info-container {
     width: 400px;
     height: 400px;
@@ -752,4 +750,20 @@ body {
     flex-direction: column;
     padding: 25px;
     z-index: 10000;
+}
+
+.select-dropdown {
+    width: 15rem;
+    min-width: 10rem;
+    color: #000
+}
+
+.select-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.select-wrapper {
+    margin-right: 20px;
 }

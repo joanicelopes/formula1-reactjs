@@ -1,68 +1,166 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import axios from 'axios';
 
 const RaceResults = () => {
-    const [races, setRaces] = useState([]);
+    const [seasonOptions, setSeasonOptions] = useState([]);
+    const [selectedSeason, setSelectedSeason] = useState(null);
+    const [selectedRound, setSelectedRound] = useState(null);
+    const [roundOptions, setRoundOptions] = useState([]);
     const [raceResults, setRaceResults] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        const fetchRaces = async () => {
-            try {
-                const response = await axios.get(
-                    'https://ergast.com/api/f1.json'
-                );
-                const raceData = response.data.MRData.RaceTable.Races;
-
-                setRaces(raceData);
-                setIsLoading(false);
-            } catch (error) {
-                console.log(error);
-                setIsLoading(false);
-            }
-        }
-        fetchRaces()
-        /* const fetchResults = async () => {
-            try {
-                for (const race of races) {
-                    const raceResultsResponse = await axios.get(
-                        `https://ergast.com/api/f1/${race.season}/${race.round}/results.json`
-                    );
-                    const raceResultsData = raceResultsResponse.data.MRData.RaceTable.Races;
-                    setRaceResults((prevRaceResults) => [...prevRaceResults, ...raceResultsData]);
-                }
-            } catch (error) {
-                console.error('Error fetching race results:', error);
-            }
-        };
-        fetchResults() */
-    }, [races])
-
-    const otherOptions = races.reduce((acc, item) => {
-        if (!acc.seasons.includes(item.season)) {
-            acc.seasons.push(item.season);
-            acc.result.push({
-                label: item.season,
-                value: item.season,
+        const fetchDataForPage = async (page) => {
+            const response = await axios.get('https://ergast.com/api/f1.json', {
+                params: {
+                    offset: (page - 1) * 30,
+                    limit: 30,
+                },
             });
-        }
-        return acc;
-    }, { seasons: [], result: [] }).result;
+            return response.data.MRData.RaceTable.Races;
+        };
 
-    const options = [
-        { value: 2008, label: 2008 },
-        { value: 2009, label: 2009 },
-        { value: 2010, label: 2010 },
-    ]
-    const handleChange = (selectedOption) => {
-        console.log("handleChange", selectedOption)
-    }
+        const fetchAllData = async () => {
+            let allRaces = [];
+            let page = 1;
+            let races;
+
+            do {
+                races = await fetchDataForPage(page);
+                allRaces = allRaces.concat(races);
+                page++;
+            } while (races.length > 0);
+
+            return allRaces;
+        };
+
+        const loadSeasonOptions = async () => {
+            const allRaces = await fetchAllData();
+            const uniqueSeasons = Array.from(new Set(allRaces.map(race => race.season)));
+            uniqueSeasons.sort((a, b) => b - a);
+
+            const seasonOptions = uniqueSeasons.map(season => ({ value: season, label: season }));
+            setSeasonOptions(seasonOptions);
+        };
+
+        loadSeasonOptions();
+    }, []);
+
+    const fetchSeasonData = async (season) => {
+        const response = await axios.get(`https://ergast.com/api/f1/${season}.json`);
+        return response.data;
+    };
+
+    const handleSeasonChange = async selectedOption => {
+        setSelectedSeason(selectedOption);
+        setSelectedRound(null);
+        setRaceResults([]);
+
+        if (selectedOption) {
+            const season = selectedOption.value;
+            const response = await fetchSeasonData(season);
+            const totalRounds = response.MRData.total;
+
+            const roundOptions = Array.from({ length: totalRounds }, (_, index) => {
+                const roundNumber = index + 1;
+                return { value: roundNumber, label: `Round ${roundNumber}` };
+            });
+
+            setRoundOptions(roundOptions);
+        }
+    };
+
+    const handleRoundChange = selectedOption => {
+        setSelectedRound(selectedOption);
+        setRaceResults([]);
+
+        if (selectedSeason && selectedOption) {
+            const season = selectedSeason.value;
+            const round = selectedOption.value;
+            const url = `https://ergast.com/api/f1/${season}/${round}/results.json`;
+
+            axios.get(url)
+                .then(response => {
+                    const results = response.data.MRData.RaceTable.Races[0].Results;
+                    setRaceResults(results);
+                })
+                .catch(error => {
+                    console.error('Error fetching race results:', error);
+                });
+        }
+    };
+
+    // Function to check if an option should be disabled
+    const isOptionDisabled = option => {
+        if (selectedSeason && option.value) {
+            const season = selectedSeason.value;
+            const round = option.value;
+            return !raceResults.some(result => result.round === round && result.season === season);
+        }
+        return false;
+    };
+
     return (
         <div>
-            <h1 className='page-title'>Race Results</h1>
-            <Select placeholder='Season' options={otherOptions} onChange={handleChange} />
+            <div className="select-container">
+                <div className="select-wrapper">
+                    <h4>Season</h4>
+                    <Select
+                        className='select-dropdown'
+                        options={seasonOptions}
+                        value={selectedSeason}
+                        onChange={handleSeasonChange}
+                    />
+                </div>
+                {selectedSeason && (
+                    <div className="select-wrapper">
+                        <h4>Round</h4>
+                        <Select
+                            className='select-dropdown'
+                            options={roundOptions}
+                            value={selectedRound}
+                            onChange={handleRoundChange}
+                        />
+                    </div>
+                )}
+            </div>
+            <div>
+                {raceResults.length > 0 && (
+                    <div>
+                        <div></div>
+                        <h4>Race Results</h4>
+                        <table className="standings-table">
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Driver</th>
+                                    <th>Constructor</th>
+                                    <th>Laps</th>
+                                    <th>Grid</th>
+                                    <th>Status</th>
+                                    <th>Points</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {raceResults.map((result, index) => (
+                                    <tr key={index}>
+                                        <td>{result.position}</td>
+                                        <td>{result.Driver.givenName} {result.Driver.familyName}</td>
+                                        <td>{result.Constructor.name}</td>
+                                        <td>{result.laps}</td>
+                                        <td>{result.grid}</td>
+                                        <td>{result.status}</td>
+                                        <td>{result.points}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+            </div>
         </div>
-    )
-}
+    );
+};
+
 export default RaceResults
