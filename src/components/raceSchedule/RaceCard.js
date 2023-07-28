@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import Modal from "../Modal/Modal";
+import Loader from '../ui/Loader'
 
 const RaceCard = ({ race, raceResults, isLoading }) => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -106,9 +107,9 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
         return first.localeCompare(second);
     });
     //------------------------------------------------------//
-    
+
     return isLoading ? (
-        <h1>Loading...</h1>
+        <Loader />
     ) : (
         <div className={`race-card-container ${isFlipped ? 'flipped' : ''}`}
             onClick={handleCardClick}
@@ -120,7 +121,7 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
                     <h4 className="circuit-name">{race.Circuit.circuitName}</h4>
                     <p className='race-weekend'>{raceWeekend(race.FirstPractice.date, race.date)}</p>
                     <p>Race ({formatDate(race.date)}) : {formatTime(race.time)}</p>
-                    {hasRacePassed && 
+                    {hasRacePassed &&
                         <button className="race-results-btn" onClick={handleViewResultsClick}>View Results</button>
                     }
                 </div>
@@ -134,11 +135,11 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
 
             </div>
             {isModalOpen && (
-                <Modal 
-                    season={race.season} 
-                    round={race.round} 
-                    raceResults={raceResults} 
-                    closeModal={handleCloseModal} 
+                <Modal
+                    season={race.season}
+                    round={race.round}
+                    raceResults={raceResults}
+                    closeModal={handleCloseModal}
                 />
             )}
         </div>

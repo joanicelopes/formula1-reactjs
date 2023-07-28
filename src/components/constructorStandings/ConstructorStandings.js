@@ -1,10 +1,12 @@
 import React from 'react';
+import Loader from '../ui/Loader'
+
 const ConstructorStandingsTable = ({ constructors, standings, isLoading }) => {
     return isLoading ? (
-        <h1>Loading...</h1>
+        <Loader />
     ) : (
         <div className="standings">
-            <table className="standings-table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th className="position-column">POS</th>

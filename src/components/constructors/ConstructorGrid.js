@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Loader from '../ui/Loader'
+
 const ConstructorCard = ({ item, isLoading }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -6,7 +8,7 @@ const ConstructorCard = ({ item, isLoading }) => {
         setIsFlipped(!isFlipped);
     };
     return isLoading ? (
-        <h1>Loading...</h1>
+        <Loader />
     ) : (
         <div className={`constructor-card-container ${isFlipped ? 'flipped' : ''}`} onClick={flipCard}>
             <div className={`constructor-card constructor-${item.constructorId}`}>
@@ -28,8 +30,10 @@ const ConstructorCard = ({ item, isLoading }) => {
     );
 };
 
-const ConstructorGrid = ({ items, constructorDrivers }) => {
-    return (
+const ConstructorGrid = ({ items, constructorDrivers, isLoading }) => {
+    return isLoading ? (
+        <Loader />
+    ) : (
         <div className="constructor-grid">
             {items.map((item) => (
                 <ConstructorCard key={item.constructorId} item={item} />

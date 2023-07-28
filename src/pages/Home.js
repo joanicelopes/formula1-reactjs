@@ -5,6 +5,7 @@ import Header from '../components/ui/Header';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import UpcomingRaceCard from '../components/raceSchedule/UpcomingRaceCard'
 import LastRaceResultsCard from "../components/lastRaceResults/LastRaceResults";
+import Loader from '../components/ui/Loader'
 
 const Home = () => {
     const [races, setRaces] = useState([]);
@@ -27,7 +28,12 @@ const Home = () => {
                 const lastRaceData = lastRaceResponse.data.MRData.RaceTable.Races;
 
                 setRaces(raceData);
-                setLastRace(lastRaceData)
+                setLastRace(lastRaceData);
+
+                setIsLoading(true);
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 5000)
                 setIsLoading(false);
 
             } catch (error) {
@@ -51,7 +57,7 @@ const Home = () => {
     };
 
     return isLoading ? (
-        <h1>Loading...</h1>
+        <Loader />
     ) : (
         <div className="home-grid-container">
             <Header />

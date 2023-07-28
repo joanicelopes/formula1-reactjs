@@ -1,8 +1,9 @@
 import React from 'react';
+import Loader from '../ui/Loader'
 
 const DriverItem = ({ drivers, isLoading }) => {
   return isLoading ? (
-    <h1>Loading...</h1>
+    <Loader />
   ) : (
     <div className="wrapper">
       <table className="standings-table">

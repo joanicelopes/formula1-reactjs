@@ -13,6 +13,19 @@
     /*font-family: 'Montserrat', sans-serif;*/
 }
 
+:root {
+    --ferrari-color: #ed1c24;
+    --mclaren-color: #f58020;
+    --red-bull-color: #1e5bc6;
+    --aston-martin-color: #2d826d;
+    --alphatauri-color: #4e7c9b;
+    --alpine-color: #2293d1;
+    --alfa-color: #b12039;
+    --williams-color: #37bedd;
+    --haas-color: #b6babd;
+    --mercedes-color: #6cd3bf;
+}
+
 body {
     background: #42445a;
     height: 100vh;
@@ -403,78 +416,123 @@ body {
     font-size: 1rem;
 }
 
+
 .constructor-mercedes {
-    border: 1px solid #6cd3bf;
+    border: 1px solid var(--mercedes-color);
 }
 
 .constructor-ferrari {
-    border: 1px solid #ed1c24;
+    border: 1px solid var(--ferrari-color);
 }
 
 .constructor-mclaren {
-    border: 1px solid #f58020;
+    border: 1px solid var(--mclaren-color);
 }
 
 .constructor-red_bull {
-    border: 1px solid #1e5bc6;
+    border: 1px solid var(--red-bull-color);
 }
 
 .constructor-aston_martin {
-    border: 1px solid #2d826d;
+    border: 1px solid var(--aston-martin-color);
 }
 
 .constructor-alphatauri {
-    border: 1px solid #4e7c9b;
+    border: 1px solid var(--alphatauri-color);
 }
 
 .constructor-alpine {
-    border: 1px solid #2293d1;
+    border: 1px solid var(--alpine-color);
 }
 
 .constructor-alfa {
-    border: 1px solid #b12039;
+    border: 1px solid var(--alfa-color);
 }
 
 .constructor-williams {
-    border: 1px solid #37bedd;
+    border: 1px solid var(--williams-color);
 }
 
 .constructor-haas {
-    border: 1px solid #b6babd;
+    border: 1px solid var(--haas-color);
 }
 
-.standings-table {
+.table {
     background-color: #333333;
     border: 1px solid red;
     border-radius: 8px;
     border-collapse: separate;
     border-spacing: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
+    margin: 2rem auto;
     width: 100%;
     max-width: 800px;
 }
 
 
-.standings-table th {
-    text-align: center;
+.table th {
+    text-align: left;
     padding: 8px;
+    font-size: 0.8rem;
 }
 
-.standings-table td {
-    text-align: center;
+.table td {
     padding: 8px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #eeeeee;
 }
 
-.standings-table tr:nth-child(even) {
+.table tr:nth-child(even) {
     background-color: #2d2d2d;
+}
+
+.mercedes {
+    color: var(--mercedes-color);
+}
+
+.ferrari {
+    color: var(--ferrari-color);
+}
+
+.mclaren {
+    color: var(--mclaren-color);
+}
+
+.red_bull {
+    color: var(--red-bull-color);
+}
+
+.aston_martin {
+    color: var(--aston-martin-color);
+}
+
+.alphatauri {
+    color: var(--alphatauri-color);
+}
+
+.alpine {
+    color: var(--alpine-color);
+}
+
+.alfa {
+    color: var(--alfa-color);
+}
+
+.williams {
+    color: var(--williams-color);
+}
+
+.haas {
+    color: var(--haas-color);
 }
 
 .position-column {
     width: 10%;
     text-align: center;
+}
+
+.driver-column {
+    text-align: left;
 }
 
 .race-grid {
@@ -668,7 +726,7 @@ body {
 
 .last-race-result-table th {
     text-align: left;
-    font-size: 0.8em;
+    font-size: 0.6em;
     padding: 0.3em;
 }
 
@@ -752,8 +810,14 @@ body {
     z-index: 10000;
 }
 
-.select-dropdown {
+.select-dropdown-1 {
     width: 15rem;
+    min-width: 10rem;
+    color: #000
+}
+
+.select-dropdown-2 {
+    width: 20rem;
     min-width: 10rem;
     color: #000
 }
@@ -762,6 +826,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .select-wrapper {

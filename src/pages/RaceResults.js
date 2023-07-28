@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import RaceResultsTable from "../components/raceResults/RaceResultsTable";
+import Loader from '../components/ui/Loader'
 
 const RaceResults = () => {
     const [seasonOptions, setSeasonOptions] = useState([]);
@@ -8,6 +10,7 @@ const RaceResults = () => {
     const [selectedRound, setSelectedRound] = useState(null);
     const [roundOptions, setRoundOptions] = useState([]);
     const [raceResults, setRaceResults] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchDataForPage = async (page) => {
@@ -44,6 +47,7 @@ const RaceResults = () => {
         };
 
         loadSeasonOptions();
+        setIsLoading(false);
     }, []);
 
     const fetchSeasonData = async (season) => {
@@ -59,16 +63,17 @@ const RaceResults = () => {
         if (selectedOption) {
             const season = selectedOption.value;
             const response = await fetchSeasonData(season);
-            const totalRounds = response.MRData.total;
+            const races = response.MRData.RaceTable.Races;
 
-            const roundOptions = Array.from({ length: totalRounds }, (_, index) => {
-                const roundNumber = index + 1;
-                return { value: roundNumber, label: `Round ${roundNumber}` };
-            });
+            const roundOptions = races.map(race => ({
+                value: race.round,
+                label: race.raceName,
+            }));
 
             setRoundOptions(roundOptions);
         }
     };
+
 
     const handleRoundChange = selectedOption => {
         setSelectedRound(selectedOption);
@@ -100,13 +105,15 @@ const RaceResults = () => {
         return false;
     };
 
-    return (
+    return isLoading ? (
+        <Loader />
+    ) : (
         <div>
             <div className="select-container">
                 <div className="select-wrapper">
                     <h4>Season</h4>
                     <Select
-                        className='select-dropdown'
+                        className='select-dropdown-1'
                         options={seasonOptions}
                         value={selectedSeason}
                         onChange={handleSeasonChange}
@@ -116,7 +123,7 @@ const RaceResults = () => {
                     <div className="select-wrapper">
                         <h4>Round</h4>
                         <Select
-                            className='select-dropdown'
+                            className='select-dropdown-2'
                             options={roundOptions}
                             value={selectedRound}
                             onChange={handleRoundChange}
@@ -125,37 +132,41 @@ const RaceResults = () => {
                 )}
             </div>
             <div>
-                {raceResults.length > 0 && (
+                {raceResults.length > 0 ? (
                     <div>
                         <div></div>
-                        <h4>Race Results</h4>
-                        <table className="standings-table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th>Pos</th>
+                                    <th></th>
                                     <th>Driver</th>
                                     <th>Constructor</th>
                                     <th>Laps</th>
                                     <th>Grid</th>
-                                    <th>Status</th>
+                                    <th>Time/Status</th>
                                     <th>Points</th>
-
                                 </tr>
                             </thead>
                             <tbody>
                                 {raceResults.map((result, index) => (
                                     <tr key={index}>
                                         <td>{result.position}</td>
+                                        <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
                                         <td>{result.Driver.givenName} {result.Driver.familyName}</td>
                                         <td>{result.Constructor.name}</td>
                                         <td>{result.laps}</td>
                                         <td>{result.grid}</td>
-                                        <td>{result.status}</td>
+                                        <td>{result.Time ? result.Time.time : result.status}</td>
                                         <td>{result.points}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                ) : (
+                    <div>
+
                     </div>
                 )}
             </div>

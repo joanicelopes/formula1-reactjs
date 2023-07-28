@@ -1,15 +1,16 @@
 import React from 'react'
 import DriverCard from './DriverCard'
+import Loader from '../ui/Loader'
 
 const DriverCardGrid = ({ drivers, isLoading }) => {
     return isLoading ? (
-        <h1>Loading...</h1>
+        <Loader />
     ) : (
         <div className='driver-card-grid'>
             {drivers.map((driver) => {
                 // const dt = drivers.find((d) => d.driverId === standings.driverId);
                 return (
-                    <DriverCard key={driver.driverId} driver={driver}/>
+                    <DriverCard key={driver.driverId} driver={driver} />
                 )
             })}
         </div>

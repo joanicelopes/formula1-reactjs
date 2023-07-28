@@ -19,7 +19,8 @@ const DriverStandings = () => {
                     position: driver.position,
                     points: driver.points,
                     wins: driver.wins,
-                    constructor: driver.Constructors[0].name
+                    constructor: driver.Constructors[0].name,
+                    constructorId: driver.Constructors[0].constructorId
                 }
             })
             setDrivers(result.map((ds) => ds.Driver));
