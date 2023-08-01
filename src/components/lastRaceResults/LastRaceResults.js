@@ -14,6 +14,7 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                             <th></th>
                             <th>Driver</th>
                             <th>Time</th>
+                            <th></th>
                             <th>Pts</th>
                             <th>Laps</th>
                         </tr>
@@ -25,6 +26,7 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                                 <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
                                 <td>{result.Driver.code}</td>
                                 <td>{result.Time ? result.Time.time : result.status}</td>
+                                <td></td>
                                 <td>{result.points}</td>
                                 <td>{result.laps}</td>
                             </tr>

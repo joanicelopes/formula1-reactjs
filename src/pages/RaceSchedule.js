@@ -8,37 +8,30 @@ const RaceSchedule = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        const fetchRaces = async () => {
+        const fetchRacesAndResults = async () => {
             try {
-                const response = await axios.get(
-                    'https://ergast.com/api/f1/current.json'
-                );
+                const response = await axios.get('https://ergast.com/api/f1/current.json');
                 const raceData = response.data.MRData.RaceTable.Races;
-
                 setRaces(raceData);
+
+                const resultsPromises = raceData.map((race) =>
+                    axios.get(`https://ergast.com/api/f1/${race.season}/${race.round}/results.json`)
+                );
+
+                const resultsResponses = await Promise.all(resultsPromises);
+                const raceResultsData = resultsResponses.map((response) => response.data.MRData.RaceTable.Races);
+                setRaceResults(raceResultsData);
+
                 setIsLoading(false);
             } catch (error) {
                 console.log(error);
                 setIsLoading(false);
             }
-        }
-        fetchRaces()
-
-        const fetchResults = async () => {
-            try {
-                for (const race of races) {
-                    const raceResultsResponse = await axios.get(
-                        `https://ergast.com/api/f1/${race.season}/${race.round}/results.json`
-                    );
-                    const raceResultsData = raceResultsResponse.data.MRData.RaceTable.Races;
-                    setRaceResults((prevRaceResults) => [...prevRaceResults, ...raceResultsData]);
-                }
-            } catch (error) {
-                console.error('Error fetching race results:', error);
-            }
         };
-        fetchResults()
-    }, [races])
+
+        fetchRacesAndResults();
+    }, []);
+
     return (
         <div>
             <h1 className='page-title'> Schedule</h1>

@@ -459,11 +459,9 @@ body {
 
 .table {
     background-color: #333333;
-    border: 1px solid red;
-    border-radius: 8px;
-    border-collapse: separate;
-    border-spacing: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 2rem auto;
     width: 100%;
     max-width: 800px;
@@ -484,6 +482,14 @@ body {
 
 .table tr:nth-child(even) {
     background-color: #2d2d2d;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
 }
 
 .mercedes {
@@ -610,9 +616,6 @@ body {
     color: #b2b2b2;
 }
 
-.circuit-name {
-    color: #b2b2b2;
-}
 
 .race-results-btn {
     width: 12ch;
@@ -638,7 +641,7 @@ body {
 }
 
 .upcoming-race-card {
-    background-color: #2d2d2d;
+    background: rgba(0, 0, 0, 0.5);
     border: 1px solid #ff0000;
     padding: 20px;
     width: 100%;
@@ -683,7 +686,7 @@ body {
 }
 
 .last-race-results-card {
-    background-color: #333333;
+    background: rgba(0, 0, 0, 0.5);
     border: 1px solid #ff0000;
     padding: 20px;
     width: 100%;
@@ -693,6 +696,7 @@ body {
 
 .last-race-results-card p {
     padding-top: 10px;
+    color: #cccccc;
 }
 
 .race-result-body {
@@ -715,29 +719,36 @@ body {
 }
 
 .race-result-table td {
+    text-align: left;
     font-size: 0.8em;
     padding: 0.5em;
     color: #cccccc;
 }
 
+.last-race-result-table {
+    border-collapse: collapse;
+}
+
 .last-race-result-table tr:nth-child(even) {
-    background-color: #2d2d2d;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .last-race-result-table th {
     text-align: left;
-    font-size: 0.6em;
+    font-size: 0.7em;
     padding: 0.3em;
+    background: rgba(0, 0, 0, 0.2);
+
 }
 
 .last-race-result-table td {
-    font-size: 0.6em;
-    padding-top: 1em;
+    font-size: 0.8em;
+    padding-top: 0.5em;
     color: #cccccc;
 }
 
 .xpto {
-    background-color: #333333;
+    background: rgba(0, 0, 0, 0.5);
     border: 1px solid #ff0000;
     border-radius: 8px;
     grid-column: 2 / -1;
@@ -824,13 +835,67 @@ body {
 
 .select-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.5);
 }
 
+.select-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selects {
+    display: flex;
+}
+
 .select-wrapper {
     margin-right: 20px;
+}
+
+.buttons-container {
+    display: flex;
+}
+
+.buttons-container button {
+    margin-left: 1em;
+    height: 2em;
+    min-width: 12em;
+    background-color: #eeeeee;
+    border: none;
+    color: #2d2d2d;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons-container button:disabled {
+    background-color: #dcdcdc;
+    color: #a9a9a9;
+    cursor: not-allowed;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.race-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container h4 {
+    padding-top: 0.4em;
+}
+
+.table-container h5 {
+    padding-top: 0.4em;
+    color: #cccccc;
 }

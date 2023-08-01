@@ -25,6 +25,7 @@ const Modal = ({ season, round, raceResults, closeModal }) => {
                         <thead>
                             <tr>
                                 <th>Pos</th>
+                                <th></th>
                                 <th>Driver</th>
                                 <th>Time</th>
                                 <th>Pts</th>
@@ -35,6 +36,7 @@ const Modal = ({ season, round, raceResults, closeModal }) => {
                             {results.map((result, index) => (
                                 <tr key={index}>
                                     <td>{result.position}</td>
+                                    <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
                                     <td>{result.Driver.givenName} {result.Driver.familyName}</td>
                                     <td>{result.Time ? result.Time.time : result.status}</td>
                                     <td>{result.points}</td>
