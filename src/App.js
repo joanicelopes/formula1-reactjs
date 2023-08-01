@@ -7,6 +7,7 @@ import DriverStandings from './pages/DriverStandings';
 import ConstructorStandings from './pages/ConstructorStandings';
 import RaceSchedule from './pages/RaceSchedule';
 import RaceResults from './pages/RaceResults';
+import Footer from './components/ui/Footer';
 
 const App = () => {
   let component
@@ -43,6 +44,7 @@ const App = () => {
         <Navbar />
       </div>
       <div className="container">{component}</div>
+      <div><Footer /></div>
     </div>
   )
 }

@@ -899,3 +899,21 @@ table tr:last-child td:first-child {
     padding-top: 0.4em;
     color: #cccccc;
 }
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #e10600;
+    color: white;
+    font-size: 0.6em;
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 5px;
+
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
