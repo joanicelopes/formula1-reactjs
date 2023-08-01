@@ -34,7 +34,7 @@ const RaceSchedule = () => {
 
     return (
         <div>
-            <h1 className='page-title'>{races[0].season} Schedule</h1>
+            <h1 className='page-title'>{races[0]?.season} Schedule</h1>
             <RaceScheduleGrid isLoading={isLoading} races={races} raceResults={raceResults} />
         </div>
     )
