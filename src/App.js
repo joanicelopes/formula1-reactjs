@@ -44,7 +44,7 @@ const App = () => {
         <Navbar />
       </div>
       <div className="container">{component}</div>
-      <div><Footer /></div>
+      {/* <div><Footer /></div> */}
     </div>
   )
 }

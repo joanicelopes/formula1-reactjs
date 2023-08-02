@@ -612,8 +612,7 @@ table tr:last-child td:first-child {
 }
 
 .race-card-back p {
-    margin-left: 0.8em;
-    margin-top: 0.8em;
+    padding-top: 0.5em;
 }
 
 .race-card-back p {
