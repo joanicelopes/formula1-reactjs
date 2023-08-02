@@ -132,7 +132,6 @@ const RaceCard = ({ race, raceResults, isLoading }) => {
                         </p>
                     ))}
                 </div>
-
             </div>
             {isModalOpen && (
                 <Modal

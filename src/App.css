@@ -28,11 +28,13 @@
 
 body {
     background: #42445a;
-    height: 100vh;
+    min-height: 100vh;
     color: #fff;
     margin: 0;
     padding: clamp(1rem, 2vw, 3rem);
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -47,7 +49,6 @@ body {
         max-width: 100%;
         padding: 0 1rem;
         flex: 1;
-
     }
 }
 
@@ -562,7 +563,7 @@ table tr:last-child td:first-child {
     cursor: pointer;
     perspective: 1000px;
     border: 1px solid #ff1801;
-    border-radius: 4px;
+    border-radius: 8px;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
     display: flex;
@@ -911,9 +912,8 @@ table tr:last-child td:first-child {
     color: white;
     font-size: 0.6em;
     padding: 1em;
-    margin-top: 1em;
+    margin-top: 5rem;
     border-radius: 5px;
-
 }
 
 .footer a {

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import RaceScheduleGrid from "../components/raceSchedule/RaceScheduleGrid"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import RaceScheduleGrid from '../components/raceSchedule/RaceScheduleGrid';
 
 const RaceSchedule = () => {
     const [races, setRaces] = useState([]);
-    const [raceResults, setRaceResults] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [raceResults, setRaceResults] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchRacesAndResults = async () => {
@@ -20,8 +20,14 @@ const RaceSchedule = () => {
 
                 const resultsResponses = await Promise.all(resultsPromises);
                 const raceResultsData = resultsResponses.map((response) => response.data.MRData.RaceTable.Races);
-                setRaceResults(raceResultsData);
 
+                // Create an object with race data as keys and their respective results as values
+                const raceResultsObject = {};
+                raceData.forEach((race, index) => {
+                    raceResultsObject[`${race.season}-${race.round}`] = raceResultsData[index];
+                });
+
+                setRaceResults(raceResultsObject);
                 setIsLoading(false);
             } catch (error) {
                 console.log(error);
@@ -34,9 +40,10 @@ const RaceSchedule = () => {
 
     return (
         <div>
-            <h1 className='page-title'>{races[0]?.season} Schedule</h1>
+            <h1 className="page-title"> Schedule</h1>
             <RaceScheduleGrid isLoading={isLoading} races={races} raceResults={raceResults} />
         </div>
-    )
-}
-export default RaceSchedule
+    );
+};
+
+export default RaceSchedule;

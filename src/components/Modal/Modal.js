@@ -3,14 +3,27 @@ import './Modal.css'
 
 const Modal = ({ season, round, raceResults, closeModal }) => {
 
-    const filteredResults = raceResults.filter(
-        (result) => result.season === season && result.round === round
-    );
+    const filteredResults = raceResults[`${season}-${round}`] || [];
+
     const results = filteredResults.length > 0 ? filteredResults[0].Results : [];
 
     const handleCloseModal = () => {
         closeModal();
     };
+
+    if (!results.length) {
+        return (
+            <div className="modal-background">
+                <div className="no-info-container">
+                    <div className="close-btn">
+                        <button onClick={handleCloseModal}> X </button>
+                    </div>
+                    <h2>Race Results</h2>
+                    <p>Loading...</p>
+                </div>
+            </div>
+        );
+    }
 
     return results.length > 0 ? (
         <div className="modal-background">

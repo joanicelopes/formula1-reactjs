@@ -14,7 +14,7 @@
 .modal-container {
     width: auto;
     height: auto;
-    max-width: 500px;
+    min-width: 550px;
     max-height: 800px;
     border-radius: 12px;
     background-color: #2d2d2d;
