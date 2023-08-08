@@ -8,6 +8,7 @@ import ConstructorStandings from './pages/ConstructorStandings';
 import RaceSchedule from './pages/RaceSchedule';
 import RaceResults from './pages/RaceResults';
 import Footer from './components/ui/Footer';
+import Nav from './components/ui/Nav';
 
 const App = () => {
   let component
@@ -41,7 +42,7 @@ const App = () => {
   return (
     <div >
       <div>
-        <Navbar />
+        <Nav />
       </div>
       <div className="container">{component}</div>
       {/* <div><Footer /></div> */}

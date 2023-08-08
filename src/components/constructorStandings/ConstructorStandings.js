@@ -22,7 +22,9 @@ const ConstructorStandingsTable = ({ constructors, standings, isLoading }) => {
                         return (
                             <tr key={constructorStanding.constructorId}>
                                 <td>{constructorStanding.position}</td>
-                                <td><span className={`${constructorStanding.constructorId}`}>❚</span></td>
+                                <td>
+                                    <span className={`${constructorStanding.constructorId}`}>❚</span>
+                                </td>
                                 <td>{constructorStanding.constructorName}</td>
                                 <td>{constructorStanding.points}</td>
                                 <td>{constructorStanding.wins}</td>
