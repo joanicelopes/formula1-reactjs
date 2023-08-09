@@ -123,8 +123,10 @@ const RaceResults = () => {
                 axios.get(qualifyingResultsUrl)
             ])
                 .then(axios.spread((raceResultsResponse, qualifyingResultsResponse) => {
-                    const raceResults = raceResultsResponse.data.MRData.RaceTable.Races[0].Results;
-                    const qualifyingResults = qualifyingResultsResponse.data.MRData.RaceTable.Races[0].QualifyingResults;
+                    const raceResults = raceResultsResponse.data.MRData.RaceTable.Races[0]?.Results || [];
+                    const qualifyingResults = qualifyingResultsResponse.data.MRData.RaceTable.Races[0]?.QualifyingResults || [];
+                    console.log(raceResultsResponse.data);
+                    console.log(qualifyingResultsResponse.data);
 
                     setRaceResults(raceResults);
                     setQualyResults(qualifyingResults);
@@ -143,6 +145,7 @@ const RaceResults = () => {
                 });
         }
     };
+
 
     return isLoading ? (
         <Loader />
@@ -176,113 +179,116 @@ const RaceResults = () => {
                 </div>
             </div>
             <div>
-                {showQualifyingResults ? (
-                    // Qualifying Results Table
-                    <div className='table-container'>
-                        <div className="race-info">
-                            <div className='race-info-left'>
-                                <h2>Qualifying Results</h2>
-                            </div>
-                            <div className="race-info-right">
-                                {/* <button onClick={handleToggleQualifyingResults}>Qualifying</button> */}
-                                <div className='buttons-container'>
-                                    <button onClick={handleShowRaceResults} disabled={showRaceResults}>
-                                        Race Results
-                                    </button>
-                                    <button onClick={handleShowQualifyingResults} disabled={showQualifyingResults}>
-                                        Qualifying Results
-                                    </button>
+                {!selectedSeason || !selectedRound ? (
+                    <div></div>
+                ) :
+                    showQualifyingResults ? (
+                        // Qualifying Results Table
+                        <div className='table-container'>
+                            <div className="race-info">
+                                <div className='race-info-left'>
+                                    <h2>Qualifying Results</h2>
+                                </div>
+                                <div className="race-info-right">
+                                    {/* <button onClick={handleToggleQualifyingResults}>Qualifying</button> */}
+                                    <div className='buttons-container'>
+                                        <button onClick={handleShowRaceResults} disabled={showRaceResults}>
+                                            Race Results
+                                        </button>
+                                        <button onClick={handleShowQualifyingResults} disabled={showQualifyingResults}>
+                                            Qualifying Results
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Pos</th>
-                                    <th></th>
-                                    <th>Driver</th>
-                                    <th>Constructor</th>
-                                    <th>Q1</th>
-                                    <th>Q2</th>
-                                    <th>Q3</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {qualyResults.map((result, index) => (
-                                    <tr key={index}>
-                                        <td>{result.position}</td>
-                                        <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
-                                        <td>{result.Driver.givenName} {result.Driver.familyName}</td>
-                                        <td>{result.Constructor.name}</td>
-                                        <td>{result.Q1 ? result.Q1 : ''}</td>
-                                        <td>{result.Q2 ? result.Q2 : ''}</td>
-                                        <td>{result.Q3 ? result.Q3 : ''}</td>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th></th>
+                                        <th>Driver</th>
+                                        <th>Constructor</th>
+                                        <th>Q1</th>
+                                        <th>Q2</th>
+                                        <th>Q3</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        <h6>*Note that the starting grid positions may be different to the qualifying positions, due to penalties or mechanical problems.</h6>
-                    </div>
-                ) : showRaceResults && raceResults.length > 0 ? (
-                    // Race Results Table
-                    <div className='table-container'>
-                        <div className="race-info">
-                            <div className='race-info-left'>
-                                <h2>Race Results</h2>
-                                <h4>Round {selectedRound?.value} - {selectedRound?.label}</h4>
-                                <h5>{formatDate(raceInfo.date)} - {formatTime(raceInfo.time)}</h5>
-                                <h5>{raceInfo.Circuit?.circuitName}</h5>
-                                <h5>{raceInfo.Circuit?.Location.locality}</h5>
-                            </div>
-                            <div className="race-info-right">
-                                {/* <button onClick={handleToggleQualifyingResults}>Qualifying</button> */}
-                                <div className='buttons-container'>
-                                    <button onClick={handleShowRaceResults} disabled={showRaceResults}>
-                                        Race Results
-                                    </button>
-                                    <button onClick={handleShowQualifyingResults} disabled={showQualifyingResults}>
-                                        Qualifying Results
-                                    </button>
+                                </thead>
+                                <tbody>
+                                    {qualyResults.map((result, index) => (
+                                        <tr key={index}>
+                                            <td>{result.position}</td>
+                                            <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
+                                            <td>{result.Driver.givenName} {result.Driver.familyName}</td>
+                                            <td>{result.Constructor.name}</td>
+                                            <td>{result.Q1 ? result.Q1 : ''}</td>
+                                            <td>{result.Q2 ? result.Q2 : ''}</td>
+                                            <td>{result.Q3 ? result.Q3 : ''}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <h6>*Note that the starting grid positions may be different to the qualifying positions, due to penalties or mechanical problems.</h6>
+                        </div>
+                    ) : showRaceResults && raceResults.length > 0 ? (
+                        // Race Results Table
+                        <div className='table-container'>
+                            <div className="race-info">
+                                <div className='race-info-left'>
+                                    <h2>Race Results</h2>
+                                    <h4>Round {selectedRound?.value} - {selectedRound?.label}</h4>
+                                    <h5>{formatDate(raceInfo.date)} - {formatTime(raceInfo.time)}</h5>
+                                    <h5>{raceInfo.Circuit?.circuitName}</h5>
+                                    <h5>{raceInfo.Circuit?.Location.locality}</h5>
+                                </div>
+                                <div className="race-info-right">
+                                    {/* <button onClick={handleToggleQualifyingResults}>Qualifying</button> */}
+                                    <div className='buttons-container'>
+                                        <button onClick={handleShowRaceResults} disabled={showRaceResults}>
+                                            Race Results
+                                        </button>
+                                        <button onClick={handleShowQualifyingResults} disabled={showQualifyingResults}>
+                                            Qualifying Results
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Pos</th>
-                                    <th></th>
-                                    <th>Driver</th>
-                                    <th>Constructor</th>
-                                    <th>Laps</th>
-                                    <th>Grid</th>
-                                    <th>Time/Status</th>
-                                    <th>Points</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {raceResults.map((result, index) => (
-                                    <tr key={index}>
-                                        <td>{result.position}</td>
-                                        <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
-                                        <td>{result.Driver.givenName} {result.Driver.familyName}</td>
-                                        <td>{result.Constructor.name}</td>
-                                        <td>{result.laps}</td>
-                                        <td>{result.grid}</td>
-                                        <td>{result.Time ? result.Time.time : result.status}</td>
-                                        <td>{result.points}</td>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th></th>
+                                        <th>Driver</th>
+                                        <th>Constructor</th>
+                                        <th>Laps</th>
+                                        <th>Grid</th>
+                                        <th>Time/Status</th>
+                                        <th>Points</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                ) : (
-                    // Empty div when no race results or race results are not available
-                    <div>
-                        {raceResults.length === 0 && (
-                            <p>No results available.</p>
-                        )}
-                    </div>
-                )}
+                                </thead>
+                                <tbody>
+                                    {raceResults.map((result, index) => (
+                                        <tr key={index}>
+                                            <td>{result.position}</td>
+                                            <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
+                                            <td>{result.Driver.givenName} {result.Driver.familyName}</td>
+                                            <td>{result.Constructor.name}</td>
+                                            <td>{result.laps}</td>
+                                            <td>{result.grid}</td>
+                                            <td>{result.Time ? result.Time.time : result.status}</td>
+                                            <td>{result.points}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        // Empty div when no race results or race results are not available
+                        <div className="no-race-results">
+                            {raceResults.length === 0 && (
+                                <p>No results available.</p>
+                            )}
+                        </div>
+                    )}
             </div>
         </div>
     );

@@ -765,3 +765,7 @@ table tr:last-child td:first-child {
     text-decoration: none;
     color: white;
 }
+
+.no-race-results p {
+    padding: 0.5rem;
+}
