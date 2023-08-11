@@ -53,9 +53,9 @@ const App = () => {
         <Nav />
       </div>
       <div className="container">{component}</div>
-      {!isLoading && (
+      {/*       {!isLoading && (
         <div><Footer /></div>
-      )}
+      )} */}
     </div>
   )
 }
