@@ -86,6 +86,7 @@ a {
 }
 
 .nav-listitemdrop li {
+    text-align: center;
     list-style: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;

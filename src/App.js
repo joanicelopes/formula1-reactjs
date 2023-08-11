@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/ui/Navbar';
 import Home from './pages/Home';
 import Drivers from './pages/Drivers';
@@ -11,6 +12,7 @@ import Footer from './components/ui/Footer';
 import Nav from './components/ui/Nav';
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   let component
 
   switch (window.location.pathname) {
@@ -39,13 +41,21 @@ const App = () => {
       component = <App />
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div >
       <div>
         <Nav />
       </div>
       <div className="container">{component}</div>
-      {/* <div><Footer /></div> */}
+      {!isLoading && (
+        <div><Footer /></div>
+      )}
     </div>
   )
 }

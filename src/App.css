@@ -322,6 +322,7 @@ body {
     text-align: left;
     padding: 8px;
     font-size: 0.8rem;
+    text-decoration: underline;
 }
 
 .table td {
@@ -757,8 +758,9 @@ table tr:last-child td:first-child {
     color: white;
     font-size: 0.6em;
     padding: 1em;
-    margin-top: 5rem;
+    margin-top: auto;
     border-radius: 5px;
+    text-align: center;
 }
 
 .footer a {

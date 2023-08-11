@@ -97,11 +97,14 @@ const RaceResults = () => {
             const season = selectedOption.value;
             const response = await fetchSeasonData(season);
             const races = response.MRData.RaceTable.Races;
+            const currentDate = new Date();
 
-            const roundOptions = races.map(race => ({
-                value: race.round,
-                label: race.raceName,
-            }));
+            const roundOptions = races
+                .filter(race => new Date(race.date) < currentDate)
+                .map(race => ({
+                    value: race.round,
+                    label: race.raceName,
+                }));
 
             setRoundOptions(roundOptions);
         }
@@ -125,8 +128,6 @@ const RaceResults = () => {
                 .then(axios.spread((raceResultsResponse, qualifyingResultsResponse) => {
                     const raceResults = raceResultsResponse.data.MRData.RaceTable.Races[0]?.Results || [];
                     const qualifyingResults = qualifyingResultsResponse.data.MRData.RaceTable.Races[0]?.QualifyingResults || [];
-                    console.log(raceResultsResponse.data);
-                    console.log(qualifyingResultsResponse.data);
 
                     setRaceResults(raceResults);
                     setQualyResults(qualifyingResults);
@@ -145,7 +146,6 @@ const RaceResults = () => {
                 });
         }
     };
-
 
     return isLoading ? (
         <Loader />
