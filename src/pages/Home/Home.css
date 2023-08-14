@@ -1,0 +1,53 @@
+.home-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.time-card-container {
+    grid-column: 1 / -1;
+}
+
+.upcoming-race-container-home {
+    grid-column: 1 / -1;
+}
+
+.time-card-container {
+    margin-top: 20px;
+}
+
+.time-card {
+    background-color: #e10600;
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-card-left {
+    margin-bottom: 8px;
+    color: white;
+    font-size: 25px;
+}
+
+.time-card-right {
+    color: white;
+    font-size: 25px;
+}
+
+@media (min-width: 900px) {
+    .constructor-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 350px);
+        justify-content: space-evenly;
+        align-content: space-evenly;
+        gap: 20px;
+    }
+}
+
+.xpto {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+    grid-column: 2 / -1;
+}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
-import RaceResultsTable from "../components/raceResults/RaceResultsTable";
-import Loader from '../components/ui/Loader'
+import RaceResultsTable from "../../components/raceResults/RaceResultsTable";
+import Loader from '../../components/ui/Loader'
 import dayjs from 'dayjs';
 let utc = require('dayjs/plugin/utc')
 let timezone = require('dayjs/plugin/timezone') // dependent on utc plugin

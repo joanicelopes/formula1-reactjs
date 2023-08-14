@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ConstructorStandingsTable from "../components/constructorStandings/ConstructorStandings";
+import ConstructorStandingsTable from "../../components/constructorStandings/ConstructorStandings";
 
 
 const ConstructorStandings = () => {

@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/ui/Navbar';
-import Home from './pages/Home';
-import Drivers from './pages/Drivers';
-import Constructors from './pages/Constructors';
-import DriverStandings from './pages/DriverStandings';
-import ConstructorStandings from './pages/ConstructorStandings';
-import RaceSchedule from './pages/RaceSchedule';
-import RaceResults from './pages/RaceResults';
+import Home from './pages/Home/Home';
+import Drivers from './pages/Drivers/Drivers';
+import Constructors from './pages/Constructors/Constructors';
+import DriverStandings from './pages/DriverStandings/DriverStandings';
+import ConstructorStandings from './pages/ConstructorsStandings/ConstructorStandings';
+import RaceSchedule from './pages/RaceSchedule/RaceSchedule';
+import RaceResults from './pages/RaceResults/RaceResults';
 import Footer from './components/ui/Footer';
 import Nav from './components/ui/Nav';
 

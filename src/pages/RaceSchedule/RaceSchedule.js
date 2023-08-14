@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import RaceScheduleGrid from '../components/raceSchedule/RaceScheduleGrid';
+import RaceScheduleGrid from '../../components/raceSchedule/RaceScheduleGrid';
 
 const RaceSchedule = () => {
     const [races, setRaces] = useState([]);

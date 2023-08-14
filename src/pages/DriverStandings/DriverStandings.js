@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import DriverStandingsTable from "../components/driverStandings/DriverStandings";
+import DriverStandingsTable from "../../components/driverStandings/DriverStandings";
 
 const DriverStandings = () => {
 

@@ -1,7 +1,8 @@
-import ConstructorGrid from '../components/constructors/ConstructorGrid';
+import ConstructorGrid from '../../components/constructors/ConstructorGrid';
 import React, { useState, useEffect } from 'react'
+import Footer from '../../components/ui/Footer';
 import axios from 'axios'
-
+import './Constructors.css'
 const Constructors = () => {
 
     const [items, setItems] = useState([])
@@ -42,7 +43,10 @@ const Constructors = () => {
     return (
         <>
             <h1 className='page-title'>Constructors</h1>
-            <ConstructorGrid isLoading={isLoading} items={items} />
+            <div className="constructors-grid-container">
+                <ConstructorGrid isLoading={isLoading} items={items} />
+                <Footer />
+            </div>
         </>
     )
 }

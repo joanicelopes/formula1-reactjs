@@ -115,11 +115,6 @@ body {
 
 /* GRIDS */
 
-.home-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
 
 .driver-card-grid {
     display: grid;
@@ -137,36 +132,7 @@ body {
     align-content: space-evenly;
 }
 
-.time-card-container {
-    grid-column: 1 / -1;
-}
 
-.upcoming-race-container-home {
-    grid-column: 1 / -1;
-}
-
-.time-card-container {
-    margin-top: 20px;
-}
-
-.time-card {
-    background-color: #e10600;
-    border-radius: 4px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.time-card-left {
-    margin-bottom: 8px;
-    color: white;
-    font-size: 25px;
-}
-
-.time-card-right {
-    color: white;
-    font-size: 25px;
-}
 
 @media (min-width: 900px) {
     .constructor-grid {
@@ -585,8 +551,8 @@ table tr:last-child td:first-child {
 
 .last-race-result-table th {
     text-align: left;
-    font-size: 0.7em;
-    padding: 0.3em;
+    font-size: 0.8em;
+    padding: 0.2em;
     background: rgba(0, 0, 0, 0.2);
 
 }
@@ -597,12 +563,6 @@ table tr:last-child td:first-child {
     color: #cccccc;
 }
 
-.xpto {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid #ff0000;
-    border-radius: 8px;
-    grid-column: 2 / -1;
-}
 
 .driver-card {
     width: 280px;
@@ -754,13 +714,14 @@ table tr:last-child td:first-child {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #e10600;
+    /* background-color: #e10600; */
     color: white;
     font-size: 0.6em;
     padding: 1em;
     margin-top: auto;
     border-radius: 5px;
     text-align: center;
+    grid-column: 1 / -1;
 }
 
 .footer a {

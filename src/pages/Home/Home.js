@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from 'dayjs'
-import Header from '../components/ui/Header';
+import Header from '../../components/ui/Header';
+import Footer from '../../components/ui/Footer';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import UpcomingRaceCard from '../components/raceSchedule/UpcomingRaceCard'
-import LastRaceResultsCard from "../components/lastRaceResults/LastRaceResults";
-import Loader from '../components/ui/Loader'
+import UpcomingRaceCard from '../../components/raceSchedule/UpcomingRaceCard'
+import LastRaceResultsCard from "../../components/lastRaceResults/LastRaceResults";
+import Loader from '../../components/ui/Loader'
+import './Home.css'
 
 const Home = () => {
     const [races, setRaces] = useState([]);
@@ -77,6 +79,7 @@ const Home = () => {
             </div>
             <div className='xpto'>
             </div>
+            <Footer />
         </div>
     );
 
