@@ -43,9 +43,13 @@ const Drivers = () => {
                     }
                 });
             });
+            const driverIdToExclude = "de_vries";
 
-            setDrivers(driverConstructorMap);
-            console.log(driverConstructorMap)
+            // Create a new array without the driver with the specified ID
+            const filteredDriverConstructorMap = driverConstructorMap.filter((driverEntry) => driverEntry.driverId !== driverIdToExclude);
+
+            setDrivers(filteredDriverConstructorMap);
+            //console.log(filteredDriverConstructorMap)
             setIsLoading(false);
         };
         fetchItems()

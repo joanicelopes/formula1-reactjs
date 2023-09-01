@@ -1,14 +1,21 @@
 import React from 'react'
 
 const DriverCard = ({ driver }) => {
-    const image = `/images/drivers/${driver.driverId}_front.png`
+    const imageSrc = `/images/drivers/${driver.driverId}_front.png`;
+    const defaultImageSrc = '/images/drivers/default_front.png';
+
     return (
         <div className={`driver-card constructor-${driver.constructor[0].constructorId}`}>
             <div className="driver-number">
                 {driver.permanentNumber}
             </div>
             <div className='img-container'>
-                <img src={image} alt={driver.driverId} />
+                <img src={imageSrc}
+                    alt={driver.driverId}
+                    onError={(e) => {
+                        e.target.src = defaultImageSrc; // Use the default image if the specified image doesn't exist 
+                    }}
+                />
             </div>
             <div className='card-content'>
                 <h3>{driver.givenName + ' ' + driver.familyName}</h3>

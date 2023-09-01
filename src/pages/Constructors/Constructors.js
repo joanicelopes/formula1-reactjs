@@ -33,8 +33,18 @@ const Constructors = () => {
                     }
                 });
             });
-            setItems(constructorDriverMap)
-            console.log(constructorDriverMap)
+
+            const driverIdToExclude = "de_vries";
+
+            // Create a new array without the driver with the specified ID
+            const filteredConstructorDriverMap = constructorDriverMap.map((constructor) => ({
+                ...constructor,
+                drivers: constructor.drivers.filter((driver) => driver.driverId !== driverIdToExclude),
+            }));
+            //console.log("Filtered Constructor Driver Map:", filteredConstructorDriverMap);
+
+            setItems(filteredConstructorDriverMap)
+            //console.log(constructorDriverMap)
             setIsLoading(false)
         }
         fetchItems()
