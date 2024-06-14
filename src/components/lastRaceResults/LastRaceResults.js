@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const LastRaceResultsCard = ({ lastRace, isLoading }) => {
     const results = lastRace[0].Results;
     return lastRace && lastRace.length > 0 ? (
         <div className="last-race-results-card">
             <h2>Last Race Results</h2>
-            <p>Round {lastRace[0].round} - {lastRace[0].raceName}</p>
+            <p>
+                Round {lastRace[0].round} - {lastRace[0].raceName}
+            </p>
             <div className="race-result-body">
-                <table className='last-race-result-table'>
+                <table className="last-race-result-table">
                     <thead>
                         <tr>
                             <th>Pos</th>
@@ -23,9 +25,19 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
                         {results.map((result, index) => (
                             <tr key={index}>
                                 <td>{result.position}</td>
-                                <td><span className={`${result.Constructor.constructorId}`}>❚</span></td>
-                                <td>{result.Driver.code}</td>
-                                <td>{result.Time ? result.Time.time : result.status}</td>
+                                <td>
+                                    <span
+                                        className={`${result.Constructor.constructorId}`}
+                                    >
+                                        ❚
+                                    </span>
+                                </td>
+                                <td> {result.Driver.code}</td>
+                                <td>
+                                    {result.Time
+                                        ? result.Time.time
+                                        : result.status}
+                                </td>
                                 <td></td>
                                 <td>{result.points}</td>
                                 <td>{result.laps}</td>
@@ -40,6 +52,6 @@ const LastRaceResultsCard = ({ lastRace, isLoading }) => {
             <h2>Last Race Results</h2>
             <p>No Info</p>
         </div>
-    )
-}
+    );
+};
 export default LastRaceResultsCard;

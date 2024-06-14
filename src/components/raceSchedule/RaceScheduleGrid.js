@@ -1,26 +1,46 @@
-import React from 'react';
-import RaceCard from './RaceCard';
-import UpcomingRaceCard from './UpcomingRaceCard';
-import Loader from '../ui/Loader'
+import React from "react";
+import RaceCardNew from "./RaceCardNew";
+import UpcomingRaceCard from "./UpcomingRaceCard";
+import Loader from "../ui/Loader";
 
 const RaceScheduleGrid = ({ races, raceResults, isLoading }) => {
-    const upcomingRace = races.find((race) => new Date(race.date) > new Date())
+    const upcomingRace = races.find((race) => new Date(race.date) > new Date());
     return isLoading ? (
         <Loader />
     ) : (
         <div>
             {upcomingRace && (
                 <div className="upcoming-race-container">
-                    <UpcomingRaceCard race={upcomingRace} isLoading={isLoading} />
+                    <UpcomingRaceCard
+                        race={upcomingRace}
+                        isLoading={isLoading}
+                    />
                 </div>
             )}
-            <div className="race-grid">
+            {/* <div className="race-grid">
                 {races.map((race) => (
-                    <RaceCard key={race.round} race={race} raceResults={raceResults} />
+                    <RaceCardNew
+                        key={race.round}
+                        race={race}
+                        raceResults={raceResults}
+                    />
+                ))}
+            </div> */}
+            <div className="race-list">
+                {races.map((race) => (
+                    <ul>
+                        <li>
+                            <RaceCardNew
+                                key={race.round}
+                                race={race}
+                                raceResults={raceResults}
+                            />
+                        </li>
+                    </ul>
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default RaceScheduleGrid;
