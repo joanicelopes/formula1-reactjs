@@ -18,9 +18,9 @@
     --mclaren-color: #f58020;
     --red-bull-color: #1e5bc6;
     --aston-martin-color: #2d826d;
-    --alphatauri-color: #4e7c9b;
-    --alpine-color: #2293d1;
-    --alfa-color: #b12039;
+    --rb-color: #4e7c9b;
+    --alpine-color: #eb5beb;
+    --sauber-color: #20b144;
     --williams-color: #37bedd;
     --haas-color: #b6babd;
     --mercedes-color: #6cd3bf;
@@ -253,16 +253,16 @@ body {
     border: 1px solid var(--aston-martin-color);
 }
 
-.constructor-alphatauri {
-    border: 1px solid var(--alphatauri-color);
+.constructor-rb {
+    border: 1px solid var(--rb-color);
 }
 
 .constructor-alpine {
     border: 1px solid var(--alpine-color);
 }
 
-.constructor-alfa {
-    border: 1px solid var(--alfa-color);
+.constructor-sauber {
+    border: 1px solid var(--sauber-color);
 }
 
 .constructor-williams {
@@ -329,16 +329,16 @@ table tr:last-child td:first-child {
     color: var(--aston-martin-color);
 }
 
-.alphatauri {
-    color: var(--alphatauri-color);
+.rb {
+    color: var(--rb-color);
 }
 
 .alpine {
     color: var(--alpine-color);
 }
 
-.alfa {
-    color: var(--alfa-color);
+.sauber {
+    color: var(--sauber-color);
 }
 
 .williams {

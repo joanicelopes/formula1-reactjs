@@ -50,4 +50,49 @@
     border: 1px solid #ff0000;
     border-radius: 8px;
     grid-column: 2 / -1;
+    padding: 10px;
+}
+
+.summary-card ul {
+    position: relative;
+    width: 700px;
+    box-sizing: border-box;
+}
+
+.summary-card ul li {
+    display: flex;
+    background: rgba(255, 255, 255, .5);
+    padding: 10px 20px;
+    margin: 5px 0;
+}
+
+.summary-card ul li span:nth-child(1) {
+    width: 50px;
+}
+
+.summary-card ul li span:nth-child(2) {
+    width: 200px;
+}
+
+.summary-card ul li span:nth-child(3) {
+    width: 200px;
+}
+
+.summary-card ul li span:nth-child(4) {
+    width: 100px;
+}
+.driver-standings-summary {
+    margin: 20px 20px;
+}
+
+.driver-standings-summary h2 {
+    margin-bottom: 15px;
+}
+
+.constructor-standings-summary {
+    margin: 50px 20px;
+}
+
+.constructor-standings-summary h2 {
+    margin-bottom: 15px;
 }

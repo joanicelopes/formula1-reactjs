@@ -34,12 +34,12 @@ const Constructors = () => {
                 });
             });
 
-            const driverIdToExclude = "de_vries";
+            //const driverIdToExclude = "de_vries";
 
             // Create a new array without the driver with the specified ID
             const filteredConstructorDriverMap = constructorDriverMap.map((constructor) => ({
                 ...constructor,
-                drivers: constructor.drivers.filter((driver) => driver.driverId !== driverIdToExclude),
+                //drivers: constructor.drivers.filter((driver) => driver.driverId !== driverIdToExclude),
             }));
             //console.log("Filtered Constructor Driver Map:", filteredConstructorDriverMap);
 
